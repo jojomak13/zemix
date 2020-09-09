@@ -1,5 +1,9 @@
 @extends('layouts.admin.master')
 
+@section('breadcrumb')
+    <li class="breadcrumb-item">Dashboard</li>    
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-xl-3 col-md-6">

@@ -12,8 +12,8 @@ $factory->define(Seller::class, function (Faker $faker) {
         'password' => bCrypt('123456'), 
         'remember_token' => Str::random(10),
         'company_name' => $faker->company,
-        'city_id' => 1,
+        'city_id' => $faker->numberBetween(1, 10),
         'address' => $faker->address,
-        'phone' => $faker->phoneNumber
+        'phone' => $faker->e164PhoneNumber
     ];
 });

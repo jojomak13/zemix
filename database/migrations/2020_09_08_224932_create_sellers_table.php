@@ -18,13 +18,14 @@ class CreateSellersTable extends Migration
             $table->string('name');
             $table->string('company_name');
             $table->string('email')->unique();
-            $table->unSignedInteger('city_id');
+            $table->unSignedBigInteger('city_id');
             $table->string('address');
             $table->string('phone');
             $table->string('password');
             $table->boolean('is_active')->default(false);
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 

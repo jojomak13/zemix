@@ -4,24 +4,17 @@
          <div class="pcoded-navigation-label">Navigation</div>
          
          <ul class="pcoded-item pcoded-left-item">
-            <li class="pcoded-hasmenu active pcoded-trigger">
-               <a href="javascript:void(0)" class="waves-effect waves-dark">
-               <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-               <span class="pcoded-mtext">Dashboard</span>
+            <li>
+               <a href="{{ route('admin.home') }}" class="waves-effect waves-dark">
+                  <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                  <span class="pcoded-mtext">Dashboard</span>
                </a>
-               <ul class="pcoded-submenu">
-                  <li class="active">
-                     <a href="index.html" class="waves-effect waves-dark">
-                     <span class="pcoded-mtext">Default</span>
-                     </a>
-                  </li>
-               </ul>
             </li>
             
             <li>
-               <a href="navbar-light.html" class="waves-effect waves-dark">
-                  <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                  <span class="pcoded-mtext">Navigation</span>
+               <a href="{{ route('admin.cities.index') }}" class="waves-effect waves-dark">
+                  <span class="pcoded-micon"><i class="feather icon-map-pin"></i></span>
+                  <span class="pcoded-mtext">Cities</span>
                </a>
             </li>
          </ul>
