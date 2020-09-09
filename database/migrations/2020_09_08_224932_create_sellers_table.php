@@ -22,6 +22,7 @@ class CreateSellersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('password');
+            $table->boolean('is_active')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
