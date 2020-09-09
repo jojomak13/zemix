@@ -15,6 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+    protected $sellerNamespace = 'App\Http\Controllers\Seller';
     protected $adminNamespace = 'App\Http\Controllers\Admin';
 
     /**
@@ -48,6 +49,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAdminRoutes();
+
+        $this->mapSellerRoutes();
         //
     }
 
@@ -78,13 +81,23 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
-        }
+    }
         
-        protected function mapAdminRoutes()
-        {
-            Route::prefix('dashboard')
-            ->middleware('web')
-            ->namespace($this->adminNamespace)
-            ->group(base_path('routes/admin.php'));
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('dashboard')
+        ->middleware('web')
+        ->name('admin.')
+        ->namespace($this->adminNamespace)
+        ->group(base_path('routes/admin.php'));
+    }   
+
+    protected function mapSellerRoutes()
+    {
+        Route::prefix('seller')
+        ->middleware('web')
+        ->name('seller.')
+        ->namespace($this->sellerNamespace)
+        ->group(base_path('routes/seller.php'));
     }   
 }

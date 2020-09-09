@@ -114,8 +114,11 @@
                          </a>
                       </li>
                       <li>
-                         <a href="auth-sign-in-social.html">
-                         <i class="feather icon-log-out"></i> Logout
+                         <a href="javascript:void(0)" onclick="this.children[1].submit()">
+                           <i class="feather icon-log-out"></i> Logout
+                           <form action="{{ route('admin.logout') }}" method="POST">
+                              @csrf
+                           </form>
                          </a>
                       </li>
                    </ul>
