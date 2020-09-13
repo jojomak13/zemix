@@ -20,7 +20,7 @@ class CreateSellersTable extends Migration
             $table->string('email')->unique();
             $table->unSignedBigInteger('city_id');
             $table->string('address');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->string('password');
             $table->boolean('is_active')->default(false);
             $table->rememberToken();

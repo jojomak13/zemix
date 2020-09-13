@@ -104,7 +104,7 @@ class CityController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'zip_code' => 'required|string|max:6',
-            'shipment_price' => 'required'
+            'shipping_price' => 'required|numeric'
         ]);
     }
 }

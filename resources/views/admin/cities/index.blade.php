@@ -16,7 +16,7 @@
                 <thead>
                     <th>City Name</th>
                     <th>Zip Code</th>
-                    <th>Shipment Price</th>
+                    <th>Shipping Price</th>
                     <th>Control</th>
                 </thead>
                 <tbody>
@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{ $city->name }}</td>
                         <td>{{ $city->zip_code }}</td>
-                        <td>@money($city->shipment_price)</td>
+                        <td>@money($city->shipping_price)</td>
                         <td>
                             <a href="{{ route('admin.cities.edit', $city) }}" class="btn btn-warning"><i class="feather icon-edit"></i></a>
                             <a href="javascript:void(0)" onclick="if(confirm('Are you sure')) this,children[1].submit()" class="btn btn-danger">

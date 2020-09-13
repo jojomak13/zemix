@@ -17,7 +17,7 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('zip_code');
-            $table->double('shipment_price', 5, 2);
+            $table->double('shipping_price', 5, 2);
             $table->timestamps();
         });
     }

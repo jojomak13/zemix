@@ -19,10 +19,10 @@
         <link rel="stylesheet" href="{{ asset('admin/css/waves.min.css') }}" media="all">
         <link rel="stylesheet" href="{{ asset('admin/css/feather.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/css/font-awesome-n.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/chartist.css') }}" media="all">
         <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/css/widget.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/css/pages.css') }}">
+        @yield('css')
     </head>
     <body>
         {{-- Loader --}}
@@ -61,32 +61,21 @@
         </div>
 
                 
-        <script data-cfasync="false" src="{{ asset('admin/js/email-decode.min.js') }}"></script>
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/jquery.min.js') }}"></script>
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/jquery-ui.min.js') }}"></script>
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/popper.min.js') }}"></script>
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('admin/js/popper.min.js') }}"></script>
+        <script src="{{ asset('admin/js/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
 
-        <script src="{{ asset('admin/js/waves.min.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+        <script src="{{ asset('admin/js/waves.min.js') }}" ></script>
 
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/jquery.slimscroll.js') }}"></script>
+        <script  src="{{ asset('admin/js/jquery.slimscroll.js') }}"></script>
 
-        <script src="{{ asset('admin/js/jquery.flot.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script src="{{ asset('admin/js/jquery.flot.categories.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script src="{{ asset('admin/js/curvedlines.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script src="{{ asset('admin/js/jquery.flot.tooltip.min.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
-        <script src="{{ asset('admin/js/chartist.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+        <script src="{{ asset('admin/js/pcoded.min.js') }}" ></script>
+        <script src="{{ asset('admin/js/vertical-layout.min.js') }}" ></script>
+        <script src="{{ asset('admin/js/script.min.js') }}"></script>
 
-        <script src="{{ asset('admin/js/amcharts.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script src="{{ asset('admin/js/serial.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script src="{{ asset('admin/js/light.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-
-        <script src="{{ asset('admin/js/pcoded.min.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script src="{{ asset('admin/js/vertical-layout.min.js') }}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/custom-dashboard.min.js') }}"></script>
-        <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{ asset('admin/js/script.min.js') }}"></script>
-
+        @yield('js')
         <script src="{{ asset('admin/js/rocket-loader.min.js') }}" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
     </body>
 </html>
