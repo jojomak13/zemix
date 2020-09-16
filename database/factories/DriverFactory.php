@@ -14,6 +14,7 @@ $factory->define(Driver::class, function (Faker $faker) {
         'vehicle' => $faker->randomElement(['car', 'motor_bike']),
         'vehicle_number' => Factory::create('ms_MY')->jpjNumberPlate,
         'phone' => $faker->e164PhoneNumber,
-        'trusted' => $faker->randomElement([true, false])
+        'trusted' => $faker->randomElement([true, false]),
+        'password' => bCrypt('123456')
     ];
 });

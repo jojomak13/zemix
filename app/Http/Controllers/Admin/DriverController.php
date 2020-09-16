@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Driver;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DriverController extends Controller
 {
@@ -15,7 +16,8 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        $drivers = Driver::latest()->paginate(10);
+        return view('admin.drivers.index', compact('drivers'));
     }
 
     /**
@@ -25,7 +27,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.drivers.create');
     }
 
     /**
@@ -36,7 +38,19 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validator($request->all())->validate();
+
+        $data = $request->all();
+        
+        if($request->has('trusted'))
+            $data['trusted'] =  true;
+        
+        $data['password'] = bCrypt($request->password);
+
+        Driver::create($data);
+
+        session()->flash('success', 'Driver created successfully');
+        return redirect()->route('admin.drivers.index');
     }
 
     /**
@@ -58,7 +72,7 @@ class DriverController extends Controller
      */
     public function edit(Driver $driver)
     {
-        //
+        return view('admin.drivers.edit', compact('driver'));
     }
 
     /**
@@ -70,7 +84,20 @@ class DriverController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-        //
+        $this->validator($request->all(), $driver)->validate();
+        
+        $data = $request->except('password');
+        
+        if($request->has('trusted'))
+            $data['trusted'] =  true;
+
+        if($request->input('password'))
+            $data['password'] = bCrypt($request->password);
+        
+        $driver->update($data);
+
+        session()->flash('success', 'Driver updated successfully');
+        return redirect()->route('admin.drivers.index');
     }
 
     /**
@@ -81,6 +108,27 @@ class DriverController extends Controller
      */
     public function destroy(Driver $driver)
     {
-        //
+        $driver->delete();
+        
+        session()->flash('success', 'Driver deleted successfully');
+        return redirect()->route('admin.drivers.index');
+    }
+
+    public function validator($data, $driver = NULL)
+    {   
+        $rules = [
+            'name' => 'required|string|max:255',
+            'age' => 'required|integer|min:18|max:90',
+            'vehicle' => 'required|string|max:255',
+            'vehicle_number' => 'required|string|max:255',
+            'phone' => 'required|string|max:11|min:11|unique:drivers' . ($driver? ",phone,$driver->id" : ''),
+            'ssn' => 'required|string|max:255|unique:drivers' . ($driver? ",ssn,$driver->id" : ''),
+            'trusted' => ""
+        ];
+
+        if(request()->input('password') || $driver == NULL)
+            $rules['password'] = 'required|min:6|max:255|confirmed';
+
+        return Validator::make($data, $rules);
     }
 }

@@ -10,4 +10,5 @@ Route::middleware('auth:admin')->group(function(){
     Route::resource('/sellers', 'SellerController');
     Route::post('/sellers/{seller}/activate', 'SellerController@activate')->name('sellers.activate');
     Route::resource('/orders', 'OrderController');
+    Route::resource('/drivers', 'DriverController');
 });

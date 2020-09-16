@@ -31,27 +31,27 @@
                </ul>
             </li>
             {{-- End Orders --}}
-            
-            {{-- Start Cities --}}
+
+            {{-- Start Drivers --}}
             <li class="pcoded-hasmenu">
                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                  <span class="pcoded-micon"><i class="feather icon-map-pin"></i></span>
-                  <span class="pcoded-mtext">Cities</span>
+                  <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                  <span class="pcoded-mtext">Drivers</span>
                </a>
                <ul class="pcoded-submenu">
                   <li>
-                     <a href="{{ route('admin.cities.index') }}" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Cities</span>
+                     <a href="{{ route('admin.drivers.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">Drivers</span>
                      </a>
                   </li>
                   <li>
-                     <a href="{{ route('admin.cities.create') }}" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">New city</span>
+                     <a href="{{ route('admin.drivers.create') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">New Driver</span>
                      </a>
                   </li>
                </ul>
             </li>
-            {{-- End Cities --}}
+            {{-- End Drivers --}}
 
             {{-- Start Seller --}}
             <li class="pcoded-hasmenu">
@@ -74,6 +74,26 @@
             </li>
             {{-- End Seller --}}
 
+            {{-- Start Cities --}}
+            <li class="pcoded-hasmenu">
+               <a href="javascript:void(0)" class="waves-effect waves-dark">
+                  <span class="pcoded-micon"><i class="feather icon-map-pin"></i></span>
+                  <span class="pcoded-mtext">Cities</span>
+               </a>
+               <ul class="pcoded-submenu">
+                  <li>
+                     <a href="{{ route('admin.cities.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">Cities</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="{{ route('admin.cities.create') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">New city</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            {{-- End Cities --}}
          </ul>
 
       </div>

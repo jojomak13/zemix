@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'sellers',
         ],
+        'driver' => [
+            'driver' => 'session',
+            'provider' => 'drivers',
+        ],
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -84,6 +88,10 @@ return [
         'sellers' => [
             'driver' => 'eloquent',
             'model' => App\Seller::class,
+        ],
+        'drivers' => [
+            'driver' => 'eloquent',
+            'model' => App\Driver::class,
         ],
     ],
 

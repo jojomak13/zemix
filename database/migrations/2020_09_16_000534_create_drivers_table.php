@@ -17,11 +17,13 @@ class CreateDriversTable extends Migration
             $table->id();
             $table->string('name');
             $table->tinyInteger('age');
-            $table->string('ssn');
+            $table->string('ssn')->unique();
             $table->enum('vehicle', ['car', 'motor_bike']);
             $table->string('vehicle_number');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->boolean('trusted')->default(false);
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
