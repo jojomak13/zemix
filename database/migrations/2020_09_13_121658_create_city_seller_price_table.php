@@ -16,7 +16,7 @@ class CreateCitySellerPriceTable extends Migration
         Schema::create('city_seller_price', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('seller_id');
-            $table->unsignedBigInteger('city_id');
+            $table->unsignedInteger('city_id');
             $table->double('shipping_price', 5, 2);
             $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->onUpdate('cascade');

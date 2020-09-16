@@ -18,7 +18,7 @@ class CreateSellersTable extends Migration
             $table->string('name');
             $table->string('company_name');
             $table->string('email')->unique();
-            $table->unSignedBigInteger('city_id');
+            $table->unSignedInteger('city_id');
             $table->string('address');
             $table->string('phone')->unique();
             $table->string('password');

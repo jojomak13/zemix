@@ -11,6 +11,27 @@
                </a>
             </li>
             
+            {{-- Start Orders --}}
+            <li class="pcoded-hasmenu">
+               <a href="javascript:void(0)" class="waves-effect waves-dark">
+                  <span class="pcoded-micon"><i class="feather icon-package"></i></span>
+                  <span class="pcoded-mtext">Orders</span>
+               </a>
+               <ul class="pcoded-submenu">
+                  <li>
+                     <a href="{{ route('admin.orders.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">Orders</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="{{ route('admin.orders.create') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">New Order</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            {{-- End Orders --}}
+            
             {{-- Start Cities --}}
             <li class="pcoded-hasmenu">
                <a href="javascript:void(0)" class="waves-effect waves-dark">
