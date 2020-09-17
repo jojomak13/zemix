@@ -88,12 +88,33 @@
                   </li>
                   <li>
                      <a href="{{ route('admin.cities.create') }}" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">New city</span>
+                        <span class="pcoded-mtext">New City</span>
                      </a>
                   </li>
                </ul>
             </li>
             {{-- End Cities --}}
+            
+            {{-- Start Admins --}}
+            <li class="pcoded-hasmenu">
+               <a href="javascript:void(0)" class="waves-effect waves-dark">
+                  <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                  <span class="pcoded-mtext">Admins</span>
+               </a>
+               <ul class="pcoded-submenu">
+                  <li>
+                     <a href="{{ route('admin.admins.index') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">Admins</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="{{ route('admin.admins.create') }}" class="waves-effect waves-dark">
+                        <span class="pcoded-mtext">New Admin</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            {{-- End Admins --}}
          </ul>
 
       </div>
