@@ -1,37 +1,33 @@
 @extends('layouts.admin.master')
 
-@section('title', 'Admins')
+@section('title', 'Roles')
 @section('breadcrumb')
-    <li class="breadcrumb-item">Admins</li>    
+    <li class="breadcrumb-item">Roles</li>    
 @endsection
 
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-end">
-        <a href="{{ route('admin.admins.create') }}" class="btn btn-primary" title="New Admin"><i class="feather icon-plus"></i></a>
+        <a href="{{ route('admin.roles.create') }}" class="btn btn-primary" title="New Role"><i class="feather icon-plus"></i></a>
     </div>
     <div class="card-block">
         <div class="dt-responsive table-responsive">
             <table class="table table-striped table-bordered nowrap dataTable">
                 <thead>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>Description</th>
                     <th>Control</th>
                 </thead>
                 <tbody>
-                    @foreach($admins as $admin)
+                    @foreach($roles as $role)
                     <tr>
-                        <td>{{ $admin->name }}</td>
-                        <td>{{ $admin->email }}</td>
-                        <td class="text-center">
-                            <label class="label label-success font-weight-bold">{{ $admin->roles[0]->display_name }}</label>
-                        </td>
+                        <td>{{ $role->name }}</td>
+                        <td>{{ $role->display_name }}</td>
                         <td>
-                            <a href="{{ route('admin.admins.edit', $admin) }}" class="btn btn-warning"><i class="feather icon-edit"></i></a>
+                            <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-warning"><i class="feather icon-edit"></i></a>
                             <a href="javascript:void(0)" onclick="if(confirm('Are you sure')) this,children[1].submit()" class="btn btn-danger">
                                 <i class="feather icon-trash"></i>
-                                <form action="{{ route('admin.admins.destroy', $admin) }}" method="POST">
+                                <form action="{{ route('admin.roles.destroy', $role) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                 </form>
@@ -42,7 +38,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                {{ $admins->links() }}
+                {{ $roles->links() }}
             </div>
         </div>
     </div>

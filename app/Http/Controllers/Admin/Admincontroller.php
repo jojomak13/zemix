@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Role;
 use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,11 @@ class Admincontroller extends Controller
      */
     public function index()
     {
-        $admins = Admin::latest()->where('id', '!=', auth()->guard('admin')->user()->id)->paginate(10);
+        $admins = Admin::latest()
+            ->where('id', '!=', auth()->guard('admin')->user()->id)
+            ->with('roles:display_name')
+            ->paginate(10);
+
         return view('admin.admins.index', compact('admins'));
     }
 
@@ -27,7 +32,8 @@ class Admincontroller extends Controller
      */
     public function create()
     {
-        return view('admin.admins.create');
+        $roles = Role::select('id', 'display_name', 'name')->get();
+        return view('admin.admins.create', compact('roles'));
     }
 
     /**
@@ -44,7 +50,7 @@ class Admincontroller extends Controller
         
         $data['password'] = bCrypt($request->password);
 
-        Admin::create($data);
+        Admin::create($data)->attachRole($request->role);
 
         session()->flash('success', 'Admin created successfully');
         return redirect()->route('admin.admins.index');
@@ -69,7 +75,9 @@ class Admincontroller extends Controller
      */
     public function edit(Admin $admin)
     {
-        return view('admin.admins.edit', compact('admin'));
+        $admin->load('roles:id');
+        $roles = Role::select('id', 'display_name')->get();
+        return view('admin.admins.edit', compact('admin', 'roles'));
     }
 
     /**
@@ -90,6 +98,7 @@ class Admincontroller extends Controller
             $data['password'] = bCrypt($request->password);
         
         $admin->update($data);
+        $admin->syncRoles([$request->role]);
 
         session()->flash('success', 'Admin updated successfully');
         return redirect()->route('admin.admins.index');
@@ -114,6 +123,7 @@ class Admincontroller extends Controller
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:admins' . ($admin? ",email,$admin->id" : ''),
+            'role' => 'required'
         ];
 
         if(request()->input('password') || $admin == NULL)

@@ -90,7 +90,9 @@ class DriverController extends Controller
         
         if($request->has('trusted'))
             $data['trusted'] =  true;
-
+        else 
+            $data['trusted'] =  false;
+        
         if($request->input('password'))
             $data['password'] = bCrypt($request->password);
         

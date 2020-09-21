@@ -50,6 +50,19 @@
                         </span>
                     @enderror
                 </div>
+                <div class="form-group col-md-6">
+                    <label for="role">Role</label>
+                    <select id="role" value="{{ old('role') }}" name="role" class="form-control @error('role') is-invalid @enderror" required>
+                        @foreach($roles as $role)
+                            <option value="{{ $role->id }}" {{ $role->id == $admin->roles[0]->id? 'selected':'' }}>{{ $role->display_name }}</option>
+                        @endforeach
+                    </select>
+                    @error('role')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Update</button>

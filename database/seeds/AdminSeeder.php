@@ -16,8 +16,10 @@ class AdminSeeder extends Seeder
             'name' => 'Joseph',
             'email' => 'jojo@test.com',
             'password' => bCrypt('123456')
-        ]);
+        ])->attachRole('admin');
 
-        factory(Admin::class, 15)->create();
+        factory(Admin::class, 15)->create()->each(function($admin){
+            $admin->attachRole('warehouse');
+        });
     }
 }

@@ -12,4 +12,8 @@ Route::middleware('auth:admin')->group(function(){
     Route::resource('/orders', 'OrderController');
     Route::resource('/drivers', 'DriverController');
     Route::resource('/admins', 'AdminController');
+
+    // Roles & Permissions
+    Route::resource('/roles', 'RoleController');
+    Route::get('/permissions', 'PermissionController@index')->name('permissions.index');
 });
