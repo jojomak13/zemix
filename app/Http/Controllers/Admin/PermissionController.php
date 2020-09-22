@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class PermissionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read_roles'])->only(['index']);
+    }
+
     /**
      * Display a listing of the resource.
      *

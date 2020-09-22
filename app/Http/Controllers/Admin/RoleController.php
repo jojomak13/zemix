@@ -9,6 +9,15 @@ use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:create_roles'])->only(['create', 'store']);
+        $this->middleware(['permission:read_roles'])->only(['index']);
+        $this->middleware(['permission:update_roles'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete_roles'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +25,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::latest()->paginate(10);
+        $roles = Role::latest()->withCount('admins as users_count')->paginate(10);
         return view('admin.roles.index', compact('roles'));
     }
 
@@ -98,9 +107,15 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $role->delete();
+        $role->loadCount('admins as count');
 
-        session()->flash('success', 'Role deleted successfully');
+        if($role->count){
+            session()->flash('warning', 'There are users in this role, delete them first');
+        } else { 
+            $role->delete();
+            session()->flash('success', 'Role deleted successfully');
+        }
+        
         return redirect()->route('admin.roles.index');
     }
 

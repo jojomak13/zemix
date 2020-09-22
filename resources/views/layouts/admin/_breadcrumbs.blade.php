@@ -1,5 +1,7 @@
 <div class="page-header card">
     <div class="row align-items-end">
+
+        {{-- Start Success alert --}}
         @if(session()->has('success'))
         <div class="col-12 mt-2">
             <div class="alert alert-success background-success">
@@ -10,6 +12,21 @@
             </div>
         </div>
         @endif
+        {{-- End Success alert --}}
+        
+        {{-- Start warning alert --}}
+        @if(session()->has('warning'))
+        <div class="col-12 mt-2">
+            <div class="alert alert-warning background-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="icofont icofont-close-line-circled text-white"></i>
+                </button>
+                <strong>Notice!</strong> {{ session('warning') }}
+            </div>
+        </div>
+        @endif
+        {{-- End warning alert --}}
+        
         <div class="col-lg-8">
             <div class="page-header-title">
                 <i class="feather icon-home bg-c-blue"></i>

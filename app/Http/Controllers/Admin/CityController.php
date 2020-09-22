@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class CityController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:create_cities'])->only(['create', 'store']);
+        $this->middleware(['permission:read_cities'])->only(['index']);
+        $this->middleware(['permission:update_cities'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete_cities'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

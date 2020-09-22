@@ -16,6 +16,7 @@
                 <thead>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Users Count</th>
                     <th>Control</th>
                 </thead>
                 <tbody>
@@ -23,15 +24,16 @@
                     <tr>
                         <td>{{ $role->name }}</td>
                         <td>{{ $role->display_name }}</td>
+                        <td>{{ $role->users_count }}</td>
                         <td>
                             <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-warning"><i class="feather icon-edit"></i></a>
-                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure')) this,children[1].submit()" class="btn btn-danger">
+                            <button {{ $role->users_count? 'disabled':'' }} onclick="if(confirm('Are you sure')) this,children[1].submit()" class="btn btn-danger {{ $role->users_count? 'disabled':'' }}">
                                 <i class="feather icon-trash"></i>
                                 <form action="{{ route('admin.roles.destroy', $role) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                 </form>
-                            </a>
+                            </button>
                         </td>
                     </tr>
                     @endforeach

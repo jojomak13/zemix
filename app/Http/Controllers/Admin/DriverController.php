@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class DriverController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:create_drivers'])->only(['create', 'store']);
+        $this->middleware(['permission:read_drivers'])->only(['index']);
+        $this->middleware(['permission:update_drivers'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete_drivers'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

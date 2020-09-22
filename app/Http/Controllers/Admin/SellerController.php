@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Validator;
 
 class SellerController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:create_sellers'])->only(['create', 'store']);
+        $this->middleware(['permission:read_sellers'])->only(['index']);
+        $this->middleware(['permission:update_sellers'])->only(['edit', 'update', 'activate']);
+        $this->middleware(['permission:delete_sellers'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

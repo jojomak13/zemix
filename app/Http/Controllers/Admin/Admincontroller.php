@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Validator;
 
 class Admincontroller extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:create_admins'])->only(['create', 'store']);
+        $this->middleware(['permission:read_admins'])->only(['index']);
+        $this->middleware(['permission:update_admins'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete_admins'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
