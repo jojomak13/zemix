@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->json('history'); 
             $table->string('barcode')->unique();
             $table->double('price', 6, 2);
+            $table->double('shipping_price', 5, 2);
             $table->unsignedBigInteger('seller_id');
             $table->unsignedInteger('city_id');
             $table->unsignedInteger('status_id');

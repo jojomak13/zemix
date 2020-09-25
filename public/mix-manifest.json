@@ -1,6 +1,8 @@
 {
+    "/fronted/js/app.js": "/fronted/js/app.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/datatables.css": "/css/datatables.css",
+    "/fronted/css/app.css": "/fronted/css/app.css",
     "/js/datatables.js": "/js/datatables.js"
 }

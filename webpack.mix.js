@@ -21,3 +21,8 @@ mix.js("resources/js/datatables.js", "public/js").sass(
     "resources/sass/datatables.scss",
     "public/css"
 );
+
+mix.js("resources/js/fronted/app.js", "public/fronted/js").sass(
+    "resources/sass/fronted/app.scss",
+    "public/fronted/css"
+);

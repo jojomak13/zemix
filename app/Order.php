@@ -24,4 +24,22 @@ class Order extends Model
     {
         return $this->belongsTo(Driver::class);
     }
+
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($order) {
+            $cityPrice = $order->seller->prices->find($order->city_id);
+
+            if($cityPrice){
+                $order->shipping_price = $cityPrice->pivot->shipping_price;
+            } else {
+                $order->shipping_price = $order->city->shipping_price;
+            }
+        });
+    }
 }

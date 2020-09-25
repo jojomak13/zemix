@@ -32,7 +32,7 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {   
-        return Order::select('client_name', 'phone', 'price', 'city_id', 'status_id', 'driver_id')
+        return Order::select('client_name', 'phone', 'price',  'shipping_price','city_id', 'status_id', 'driver_id')
             ->with('city:id,name')
             ->with('status:id,name')
             ->with('driver:id,name');
@@ -71,6 +71,7 @@ class OrderDataTable extends DataTable
             Column::make('client_name'),
             Column::make('phone'),
             Column::make('Price')->data('price'),
+            Column::make('Shipping')->data('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),
             Column::make('Status')->data('status.name')->name('status.name'),
             Column::make('Driver')->data('driver.name')->name('driver.name'),
