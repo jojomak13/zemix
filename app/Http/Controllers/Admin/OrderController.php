@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Order;
 use Illuminate\Http\Request;
+use App\DataTables\OrderDataTable;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -13,9 +14,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(OrderDataTable $datatable)
     {
-        // 
+        return $datatable->render('admin.orders.index');
     }
 
     /**

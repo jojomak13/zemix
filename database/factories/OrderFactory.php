@@ -22,6 +22,8 @@ $factory->define(Order::class, function (Faker $faker) {
     $driverId = $faker->numberBetween(1, 20);
 
     return [
+        'client_name' => $faker->name,
+        'phone' => $faker->e164PhoneNumber,
         'content' => $faker->text,
         'description' => $faker->text(150),
         'notes' => '',

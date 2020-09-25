@@ -1,4 +1,4 @@
-<nav class="navbar header-navbar pcoded-header">
+<nav class="navbar header-navbar pcoded-header fixed-top">
     <div class="navbar-wrapper">
        <div class="navbar-logo">
           <a href="index.html">
