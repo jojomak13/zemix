@@ -72,7 +72,7 @@ class OrderDataTable extends DataTable
             Column::make('client_name'),
             Column::make('phone'),
             Column::make('Price')->data('price'),
-            Column::make('Shipping')->data('shipping_price'),
+            Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),
             Column::make('Status')->data('status.name')->name('status.name'),
             Column::make('Driver')->data('driver.name')->name('driver.name'),
