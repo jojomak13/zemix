@@ -52,6 +52,17 @@ class OrderController extends Controller
     }
 
     /**
+     * Display order history.
+     *
+     * @param  \App\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function history(Order $order)
+    {
+        return json_decode($order->history);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Order  $order

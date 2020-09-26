@@ -6,7 +6,7 @@
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/css/datatables.css') }}">
 @endsection
 
 @section('content')
@@ -22,10 +22,13 @@
         </div>
     </div>
 </div>
+
+@include('admin.orders._history')
 @endsection
 
 @section('js')
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/sp-1.0.1/datatables.min.js"></script>
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 {!! $dataTable->scripts() !!}
+<script src="{{ asset('backend/js/datatables.js') }}"></script>
 @endsection

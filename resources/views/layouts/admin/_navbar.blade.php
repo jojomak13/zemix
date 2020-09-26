@@ -27,7 +27,7 @@
                 </div>
              </li>
              <li>
-                <a href="#!" onclick="if (!window.__cfRLUnblockHandlers) return false; javascript:toggleFullScreen()" class="waves-effect waves-light" data-cf-modified-d2d1d6e2f87cbebdf4013b26-="">
+                <a href="javascript:void(0)" onclick="toggleFullScreen()" class="waves-effect waves-light">
                 <i class="full-screen feather icon-maximize"></i>
                 </a>
              </li>

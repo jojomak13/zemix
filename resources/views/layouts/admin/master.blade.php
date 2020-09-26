@@ -15,7 +15,7 @@
         <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/css/waves.min.css') }}" media="all">
         <link rel="stylesheet" href="{{ asset('admin/css/feather.css') }}">
@@ -61,25 +61,10 @@
             </div>
         </div>
 
-                
-        {{-- <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('admin/js/popper.min.js') }}"></script>
-        <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script> --}}
-
-        <script src="{{ asset('js/app.js') }}"></script>
-
-        <script src="{{ asset('admin/js/jquery-ui.min.js') }}"></script>
-
-        <script src="{{ asset('admin/js/waves.min.js') }}" ></script>
-
-        <script  src="{{ asset('admin/js/jquery.slimscroll.js') }}"></script>
-
-
-        <script src="{{ asset('admin/js/pcoded.min.js') }}" ></script>
-        <script src="{{ asset('admin/js/vertical-layout.min.js') }}" ></script>
-        <script src="{{ asset('admin/js/script.min.js') }}"></script>
-
+        {{-- Start Scripts --}}
+        <script src="{{ asset('backend/js/app.js') }}"></script>
+        <script src="{{ asset('backend/js/all.js') }}"></script>
+        {{-- End Scripts --}}
         @yield('js')
-        <script src="{{ asset('admin/js/rocket-loader.min.js') }}" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
     </body>
 </html>
