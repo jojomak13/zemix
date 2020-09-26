@@ -16564,3 +16564,18 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 .city-card .form-control:focus {
     box-shadow: none;
 }
+.editor__editable,
+/* Classic build. */
+.ck-editor[role='application'] .ck.ck-content,
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+	width: 100%;
+	background: #fff;
+	font-size: 1em;
+	line-height: 1.6em;
+	min-height: 350px;
+	padding: 1.5em 2em;
+}

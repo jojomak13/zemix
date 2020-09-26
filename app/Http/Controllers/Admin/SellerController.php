@@ -26,7 +26,7 @@ class SellerController extends Controller
      */
     public function index()
     {
-        $sellers = Seller::latest()->with('city')->paginate(5);
+        $sellers = Seller::latest()->with('city:id,name')->paginate(5);
         return view('admin.sellers.index', compact('sellers'));
     }
 

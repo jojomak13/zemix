@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\City;
 use App\Order;
+use App\Driver;
+use App\Status;
 use Illuminate\Http\Request;
 use App\DataTables\OrderDataTable;
 use App\Http\Controllers\Controller;
@@ -70,7 +73,12 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        $order->load('seller:name,id');
+        $cities = City::select('name', 'id')->get();
+        $statues = Status::select('name', 'id')->get();
+        $drivers = Driver::select('name', 'id')->get();
+
+        return view('admin.orders.edit', compact('order', 'cities', 'statues', 'drivers'));
     }
 
     /**

@@ -11,7 +11,6 @@ class Seller extends Authenticatable
     use Notifiable;
 
     protected $guard = 'seller';
-    protected $with = ['city'];
 
     protected $fillable = [
         'name', 'email', 'password', 'company_name', 'address', 'phone', 'city_id', 'is_active'

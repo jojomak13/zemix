@@ -57,8 +57,8 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('admin/js/select2.min.js') }}"></script>
-<script src="{{ asset('admin/js/jquery.multi-select.js') }}"></script>
-<script src="{{ asset('admin/js/jquery.quicksearch.js') }}"></script>
-<script src="{{ asset('admin/js/select2-custom.js') }}"></script>
+<script src="{{ asset('backend/js/libs/select2.min.js') }}"></script>
+<script src="{{ asset('backend/js/libs/jquery.multi-select.js') }}"></script>
+<script src="{{ asset('backend/js/libs/jquery.quicksearch.js') }}"></script>
+<script src="{{ asset('backend/js/libs/select2-custom.js') }}"></script>
 @endsection
