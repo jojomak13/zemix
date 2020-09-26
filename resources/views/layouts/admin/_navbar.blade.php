@@ -5,7 +5,7 @@
           <img class="img-fluid" src="{{ asset('admin/png/logo.png') }}" alt="Theme-Logo" />
           </a>
           <a class="mobile-menu" id="mobile-collapse" href="#!">
-          <i class="feather icon-menu icon-toggle-right"></i>
+            <i class="feather icon-menu icon-toggle-right"></i>
           </a>
           <a class="mobile-options waves-effect waves-light">
           <i class="feather icon-more-horizontal"></i>

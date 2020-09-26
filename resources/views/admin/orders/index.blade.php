@@ -31,4 +31,9 @@
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 {!! $dataTable->scripts() !!}
 <script src="{{ asset('backend/js/datatables.js') }}"></script>
+<script>
+    window.onload = () => {
+        document.querySelector('a#mobile-collapse').click()
+    }
+</script>
 @endsection
