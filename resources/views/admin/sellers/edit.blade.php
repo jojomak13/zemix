@@ -136,7 +136,7 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('admin/js/select2.min.js') }}"></script>
+<script src="{{ asset('backend/js/libs/select2.min.js') }}"></script>
 <script>
     $('select.select2').select2();
 
@@ -172,7 +172,6 @@
         e.preventDefault();
 
         if(e.target.tagName == 'BUTTON'){
-            console.log(e.target)
             e.target.parentElement.parentElement.parentElement.remove();
         }
     });

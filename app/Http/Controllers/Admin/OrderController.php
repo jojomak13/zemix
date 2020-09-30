@@ -6,9 +6,11 @@ use App\City;
 use App\Order;
 use App\Driver;
 use App\Status;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\DataTables\OrderDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrderUpdateRequest;
 
 class OrderController extends Controller
 {
@@ -88,9 +90,12 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(OrderUpdateRequest $request, Order $order)
     {
-        //
+        $order->update($request->all());
+
+        session()->flash('success', 'Order updated successfully');
+        return redirect()->route('admin.orders.index');
     }
 
     /**
@@ -101,6 +106,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        session()->flash('success', 'Order deleted successfully');
+        return redirect()->route('admin.orders.index');
     }
 }

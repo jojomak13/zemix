@@ -2,13 +2,16 @@
 
 namespace App;
 
+use App\Observers\OrderObserver;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
     protected $fillable = [
-        'client_name', 'phone', 'content', 'description', 'notes', 'address', 'history', 'barcode', 'price', 'seller_id', 'city_id', 'status_id', 'driver_id'
+        'client_name', 'phone', 'content', 'description', 'notes', 'address', 'history', 'barcode', 'price', 'shipping_price', 'seller_id', 'city_id', 'status_id', 'driver_id'
     ];
+
+    protected $appends = ['serialized_history'];
 
     public function city()
     {
@@ -30,16 +33,9 @@ class Order extends Model
         return $this->belongsTo(Seller::class);
     }
 
-    protected static function booted()
+    public function getSerializedHistoryAttribute()
     {
-        static::creating(function ($order) {
-            $cityPrice = $order->seller->prices->find($order->city_id);
-
-            if($cityPrice){
-                $order->shipping_price = $cityPrice->pivot->shipping_price;
-            } else {
-                $order->shipping_price = $order->city->shipping_price;
-            }
-        });
+        return json_decode($this->history);
     }
+
 }

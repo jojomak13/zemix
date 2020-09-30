@@ -27,7 +27,6 @@ class OrderDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Order $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query()
@@ -75,7 +74,9 @@ class OrderDataTable extends DataTable
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),
             Column::make('Status')->data('status.name')->name('status.name'),
-            Column::make('Driver')->data('driver.name')->name('driver.name'),
+            Column::make('Driver')->data('driver.name')->name('driver.name')->render(function(){
+                return 'function(data,type,full,meta){ return data || "Not Set"; }';
+            }),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

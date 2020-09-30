@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\City;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -102,9 +103,13 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        $city->delete();
+        try {
+            $city->delete();
+            session()->flash('success', 'City deleted successfully');
+        } catch (QueryException $error){
+            session()->flash('warning', 'You can\'t delete a city belongs to another records');
+        }
 
-        session()->flash('success', 'City deleted successfully');
         return redirect()->back();
     }
 

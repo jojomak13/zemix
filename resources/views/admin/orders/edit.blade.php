@@ -175,6 +175,15 @@
                     </div>
                     {{-- End Status --}}
 
+                    {{-- Start As Driver --}}
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="as_driver" id="as_driver">
+                            <label for="as_driver" class="form-check-label">As Driver</label>
+                        </div>
+                    </div>
+                    {{-- End As Driver --}}
+
                 </div>
             </div>
         </div>

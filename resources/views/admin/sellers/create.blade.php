@@ -103,7 +103,7 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('admin/js/select2.min.js') }}"></script>
+<script src="{{ asset('backend/js/libs/select2.min.js') }}"></script>
 <script>
     $('select').select2();
 </script>

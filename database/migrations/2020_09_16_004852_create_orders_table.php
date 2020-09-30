@@ -30,10 +30,10 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('city_id');
             $table->unsignedInteger('status_id');
             $table->unsignedBigInteger('driver_id')->nullable();
-            $table->foreign('seller_id')->references('id')->on('sellers');
+            $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('CASCADE');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('status_id')->references('id')->on('statuses');
-            $table->foreign('driver_id')->references('id')->on('drivers');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('SET NULL');
             $table->timestamps();
         });
     }
