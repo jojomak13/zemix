@@ -6,7 +6,7 @@
     <div class="card mt-2">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
-                <img src="{{ asset('admin/logo.svg') }}" class="img-fluid" style="height:150px" alt="{{ config('app.name') }}">
+                <img src="{{ asset('backend/images/logo.svg') }}" class="img-fluid" style="height:150px" alt="{{ config('app.name') }}">
                 {!! DNS2D::getBarcodeSVG($order->barcode, 'QRCODE', 5, 5) !!}
             </div>
             <div class="d-flex justify-content-between">

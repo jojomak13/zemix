@@ -8,7 +8,7 @@
 
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('admin/css/multi-select.css') }}" />
+<link rel="stylesheet" href="{{ asset('backend/css/multi-select.css') }}" />
 @endsection
 
 @section('content')

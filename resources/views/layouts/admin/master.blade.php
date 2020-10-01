@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="@yield('description')" />
-        <meta name="keywords" content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
-        <meta name="author" content="colorlib" />
         <title>@yield('title', 'Home') | Dashboard | {{ config('app.name') }}</title>
         <!--[if lt IE 10]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -16,13 +14,13 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('backend/css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/waves.min.css') }}" media="all">
-        <link rel="stylesheet" href="{{ asset('admin/css/feather.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/font-awesome-n.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/widget.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/pages.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/waves.min.css') }}" media="all">
+        <link rel="stylesheet" href="{{ asset('backend/css/feather.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/font-awesome-n.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/widget.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/pages.css') }}"> --}}
         @yield('css')
     </head>
     <body>

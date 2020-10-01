@@ -7,7 +7,7 @@
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/css/select2.min.css') }}">
 @endsection
 
 @section('content')

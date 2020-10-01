@@ -6,7 +6,7 @@
          <ul class="pcoded-item pcoded-left-item">
             <li>
                <a href="{{ route('admin.home') }}" class="waves-effect waves-dark">
-                  <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                  <span class="pcoded-micon"><i class="fa fa-home"></i></span>
                   <span class="pcoded-mtext">Dashboard</span>
                </a>
             </li>
@@ -15,7 +15,7 @@
             @if(auth()->user()->isAbleTo('read_orders'))
             <li>
                <a href="{{ route('admin.orders.index') }}" class="waves-effect waves-dark">
-                  <span class="pcoded-micon"><i class="feather icon-package"></i></span>
+                  <span class="pcoded-micon"><i class="fas fa-cubes"></i></span>
                   <span class="pcoded-mtext">Orders</span>
                </a>
             </li>
@@ -26,7 +26,7 @@
             @if(auth()->user()->isAbleTo('read_drivers'))
             <li class="pcoded-hasmenu">
                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                  <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                  <span class="pcoded-micon"><i class="fa fa-users"></i></span>
                   <span class="pcoded-mtext">Drivers</span>
                </a>
                <ul class="pcoded-submenu">

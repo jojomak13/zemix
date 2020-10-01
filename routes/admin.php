@@ -13,6 +13,8 @@ Route::middleware('auth:admin')->group(function(){
     Route::get('/orders/{order}/history', 'OrderController@history');
     Route::resource('/drivers', 'DriverController');
     Route::resource('/admins', 'AdminController');
+    Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
+    Route::patch('/profile', 'ProfileController@update')->name('profile.update');
 
     // Roles & Permissions
     Route::resource('/roles', 'RoleController');

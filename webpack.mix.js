@@ -13,7 +13,6 @@ const mix = require("laravel-mix");
 // Start Admin
 mix.scripts(
     [
-        "resources/js/admin/waves.min.js",
         "resources/js/admin/jquery.slimscroll.js",
         "resources/js/admin/pcoded.min.js",
         "resources/js/admin/vertical-layout.min.js",
