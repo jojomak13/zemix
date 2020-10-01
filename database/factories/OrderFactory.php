@@ -28,7 +28,6 @@ $factory->define(Order::class, function (Faker $faker) {
         'description' => $faker->text(150),
         'notes' => '',
         'address' => $faker->address,
-        'barcode' => $faker->unique()->ean8,
         'history' => generateHistory($driverId),
         'price' => $faker->randomFloat(2, 50, 1500),
         'seller_id' => $faker->numberBetween(1, 100), 

@@ -6,6 +6,7 @@ use App\Order;
 use App\Driver;
 use App\Status;
 use Carbon\Carbon;
+use Faker\Factory;
 
 class OrderObserver
 {
@@ -17,6 +18,7 @@ class OrderObserver
      */
     public function creating(Order $order)
     {
+        // Shipping Price
         $cityPrice = $order->seller->prices->find($order->city_id);
 
         if($cityPrice){
@@ -24,6 +26,20 @@ class OrderObserver
         } else {
             $order->shipping_price = $order->city->shipping_price;
         }
+    }
+
+    /**
+     * Handle the order "created" event.
+     *
+     * @param  \App\Order  $order
+     * @return void
+     */
+    public function created(Order $order)
+    {
+        // Barcode
+        $faker = Factory::create();
+        $order->barcode = $order->id . $order->id;
+        $order->save();
     }
 
     /**
@@ -35,19 +51,21 @@ class OrderObserver
     public function updating(Order $order)
     {
         $data = request()->all();
-        
-        if($data['status_id'] != $order->getOriginal('status_id') || $data['driver_id'] != $order->getOriginal('driver_id')){
-            $time = Carbon::now();
-            $name = (request()->has('as_driver'))? Driver::findOrFail($data['driver_id'])->name : auth()->guard('admin')->user()->name;
 
-            $data['history'] = $order->serialized_history;
-            $data['history'][] = [
-                "status" => Status::findOrFail($data['status_id'])->name,
-                "name" => $name,
-                'created_at' => $time->toDateTimeString()
-            ];
+        if(!empty($data)){
+            if($data['status_id'] != $order->getOriginal('status_id') || $data['driver_id'] != $order->getOriginal('driver_id')){
+                $time = Carbon::now();
+                $name = (request()->has('as_driver'))? Driver::findOrFail($data['driver_id'])->name : auth()->guard('admin')->user()->name;
 
-            $order->history = $data['history'];
+                $data['history'] = $order->serialized_history;
+                $data['history'][] = [
+                    "status" => Status::findOrFail($data['status_id'])->name,
+                    "name" => $name,
+                    'created_at' => $time->toDateTimeString()
+                ];
+
+                $order->history = $data['history'];
+            }
         }
     }
 

@@ -25,27 +25,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Order  $order
@@ -53,7 +32,9 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $order->load(['city:name,id', 'seller:name,company_name,id']);
+//        return $order;
+        return view('admin.orders.show', compact('order'));
     }
 
     /**

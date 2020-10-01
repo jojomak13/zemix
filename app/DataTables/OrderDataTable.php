@@ -52,11 +52,9 @@ class OrderDataTable extends DataTable
             ->dom('Bfrtip')
             ->orderBy(1)
             ->buttons(
-                Button::make('create'),
-                Button::make('export'),
-                Button::make('print'),
-                Button::make('reset'),
-                Button::make('reload')
+                Button::make('excel')->text('<i class="fa fa-file-excel"> Excel'),
+                Button::make('print')->text('<i class="fa fa-print"> Print'),
+                Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')
             );
     }
 

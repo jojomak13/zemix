@@ -1,0 +1,23 @@
+*{
+    text-align: right;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+}
+
+ul.list li {
+    line-height: 2.5;
+}
+
+ul.list li span:first-child {
+    font-weight: bold;
+    min-width: 85px;
+    display: inline-block;
+}

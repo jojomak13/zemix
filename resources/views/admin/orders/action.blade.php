@@ -1,3 +1,4 @@
+<a href="{{ route('admin.orders.show', $id) }}" class="btn btn-success"><i class="fa fa-print"></i></a>
 <button type="button" class="btn btn-info show-history" data-order="{{ $id }}">
     <i class="fa fa-truck"></i>
 </button>

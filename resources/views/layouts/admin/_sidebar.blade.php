@@ -10,32 +10,18 @@
                   <span class="pcoded-mtext">Dashboard</span>
                </a>
             </li>
-            
+
             {{-- Start Orders --}}
             @if(auth()->user()->isAbleTo('read_orders'))
-            <li class="pcoded-hasmenu">
-               <a href="javascript:void(0)" class="waves-effect waves-dark">
+            <li>
+               <a href="{{ route('admin.orders.index') }}" class="waves-effect waves-dark">
                   <span class="pcoded-micon"><i class="feather icon-package"></i></span>
                   <span class="pcoded-mtext">Orders</span>
                </a>
-               <ul class="pcoded-submenu">
-                  <li>
-                     <a href="{{ route('admin.orders.index') }}" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Orders</span>
-                     </a>
-                  </li>
-                  @if(auth()->user()->isAbleTo('create_orders'))
-                  <li>
-                     <a href="{{ route('admin.orders.create') }}" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">New Order</span>
-                     </a>
-                  </li>
-                  @endif
-               </ul>
             </li>
             @endif
             {{-- End Orders --}}
-
+             
             {{-- Start Drivers --}}
             @if(auth()->user()->isAbleTo('read_drivers'))
             <li class="pcoded-hasmenu">

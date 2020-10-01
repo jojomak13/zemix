@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->mediumText('notes')->nullable();
             $table->string('address');
             $table->json('history'); 
-            $table->string('barcode')->unique();
+            $table->string('barcode')->nullable()->unique();
             $table->double('price', 6, 2);
             $table->double('shipping_price', 5, 2);
             $table->unsignedBigInteger('seller_id');
