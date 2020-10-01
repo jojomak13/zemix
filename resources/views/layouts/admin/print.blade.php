@@ -9,8 +9,8 @@
     <title>@yield('title', 'Home') | Dashboard | {{ config('app.name') }}</title>
     <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/print-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/print-layout.css') }}">
 </head>
 <body>
     <div class="container">
