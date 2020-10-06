@@ -11,8 +11,6 @@ class Order extends Model
         'client_name', 'phone', 'content', 'description', 'notes', 'address', 'history', 'barcode', 'price', 'shipping_price', 'seller_id', 'city_id', 'status_id', 'driver_id'
     ];
 
-    protected $appends = ['serialized_history'];
-
     public function city()
     {
         return $this->belongsTo(City::class);

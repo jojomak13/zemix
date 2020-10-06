@@ -32,6 +32,11 @@ class Seller extends Authenticatable
             ->withTimeStamps();
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function syncCitiesShipping($prices, $cities)
     {
         $data = [];
