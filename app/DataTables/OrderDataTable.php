@@ -31,11 +31,10 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {   
-        return Order::select('id', 'client_name', 'phone', 'price',  'shipping_price', 'city_id', 'status_id', 'driver_id')
+        return Order::select('orders.id', 'client_name', 'orders.phone', 'price',  'orders.shipping_price', 'city_id', 'status_id', 'driver_id')
             ->with('city:id,name')
             ->with('status:id,name')
-            ->with('driver:id,name')
-            ->orderBy('id', 'desc');
+            ->with('driver:id,name');
     }
 
     /**
@@ -50,7 +49,7 @@ class OrderDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
-            ->orderBy(1)
+            ->orderBy(0, 'desc')
             ->buttons(
                 Button::make('excel')->text('<i class="fa fa-file-excel"> Excel'),
                 Button::make('print')->text('<i class="fa fa-print"> Print'),
@@ -66,6 +65,7 @@ class OrderDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('#')->data('id')->name('id'),
             Column::make('client_name'),
             Column::make('phone'),
             Column::make('Price')->data('price'),
