@@ -34,7 +34,7 @@ class Seller extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class, 'seller_id', 'id');
     }
 
     public function syncCitiesShipping($prices, $cities)
@@ -49,6 +49,6 @@ class Seller extends Authenticatable
                 ];
             }
 
-       $this->prices()->sync($data); 
+       $this->prices()->sync($data);
     }
 }

@@ -16,7 +16,7 @@ class HomeController extends Controller
             ->with('status:id,name')
             ->with('city:id,name')
             ->paginate(10);
-            
+
         return view('seller.index', compact('orders'));
     }
 
