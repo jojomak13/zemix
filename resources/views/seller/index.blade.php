@@ -14,7 +14,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Custom Prices</span>
-                        <h3 class="text-muted">{{ $orders->total() }}</h3>
+                        <h4 class="text-muted">{{ $orders->total() }}</h4>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Total Orders</span>
-                        <h3 class="text-muted">{{ $orders->total() }}</h3>
+                        <h4><a href="#orders" class="text-muted">{{ $orders->total() }}</a></h4>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Shipped Orders</span>
-                        <h3 class="text-muted">45</h3>
+                        <h4 class="text-muted">45</h4>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Failed Orders</span>
-                        <h3 class="text-muted">4560</h3>
+                        <h4 class="text-muted">4560</h4>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Total Cash</span>
-                        <h3 class="text-muted">4560</h3>
+                        <h4 class="text-muted">@money(4560)</h4>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Received Cash</span>
-                        <h3 class="text-muted">4560</h3>
+                        <h4 class="text-muted">@money(4560)</h4>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Unreceived Cash</span>
-                        <h3 class="text-muted">4560</h3>
+                        <h4 class="text-muted">@money(4560)</h4>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="info">
                         <span class="font-weight-bold">Shipping Fees</span>
-                        <h3 class="text-muted">4560</h3>
+                        <h4 class="text-muted">@money(4560)</h4>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
     {{-- End Stats --}}
 
     {{-- Start Orders --}}
-    <div class="card">
+    <div class="card" id="orders">
         <div class="card-header">Orders</div>
         <div class="card-body">
             <div class="table-responsive">

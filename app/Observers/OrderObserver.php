@@ -51,8 +51,9 @@ class OrderObserver
     public function updating(Order $order)
     {
         $data = request()->all();
+        $guard = explode('_', auth()->guard()->getName())[1];
 
-        if(!empty($data)){
+        if(!empty($data) && $guard == 'admin'){
             if($data['status_id'] != $order->getOriginal('status_id') || $data['driver_id'] != $order->getOriginal('driver_id')){
                 $time = Carbon::now();
                 $name = (request()->has('as_driver'))? Driver::findOrFail($data['driver_id'])->name : auth()->guard('admin')->user()->name;

@@ -25,8 +25,8 @@
                             <input type="text" id="client_name" name="client_name" value="{{ $order->client_name }}" class="form-control @error('client_name') is-invalid @enderror" required>
                             @error('client_name')
                                 <span class="invalid-feedback" role="alert">
-                                </span>
                                     <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                         {{-- End Client Name --}}
@@ -46,7 +46,7 @@
                         {{-- Start Price --}}
                         <div class="form-group col-md-6">
                             <label for="price">Price</label>
-                            <input type="number" id="price" step="0.5" value="{{ $order->price }}" name="price" class="form-control @error('price') is-invalid @enderror" required>
+                            <input type="number" id="price" min="1" step="0.5" value="{{ $order->price }}" name="price" class="form-control @error('price') is-invalid @enderror" required>
                             @error('price')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                         {{-- Start Shipping Price --}}
                         <div class="form-group col-md-6">
                             <label for="shipping_price">Shipping Price</label>
-                            <input type="number" id="shipping_price" step="0.5" value="{{ $order->shipping_price }}" name="shipping_price" class="form-control @error('shipping_price') is-invalid @enderror" required>
+                            <input type="number" id="shipping_price" min="1" step="0.5" value="{{ $order->shipping_price }}" name="shipping_price" class="form-control @error('shipping_price') is-invalid @enderror" required>
                             @error('shipping_price')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

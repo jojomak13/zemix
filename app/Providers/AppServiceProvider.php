@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Order::observe(OrderObserver::class);       
         Blade::directive('money', function ($money) {
-            return "<?php echo number_format($money, 2) . ' EGP'; ?>";
+            return "<?php echo number_format($money, 2) . ' <span class=\"curreny\">EGP</span>'; ?>";
         });
     }
 }

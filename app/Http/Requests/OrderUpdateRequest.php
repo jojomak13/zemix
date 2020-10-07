@@ -30,7 +30,7 @@ class OrderUpdateRequest extends FormRequest
             'shipping_price' => 'required|numeric',
             'address' => 'required|string',
             'notes' => '',
-            'description' => 'required|string',
+            'description' => 'string|nullable',
             'driver_id' => 'required',
             'city_id' => 'required',
             'status_id' => 'required',

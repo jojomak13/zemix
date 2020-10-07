@@ -5,3 +5,42 @@ body {
 .stats .stat {
     margin: 5px 0;
 }
+
+.stats .stat a {
+    text-decoration: none;
+}
+
+.curreny {
+    font-weight: 300 !important;
+    font-size: 0.6em;
+}
+
+.card {
+    border: 0;
+    border-radius: 0;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+select,
+select.form-control {
+    padding: 0.5rem;
+}
+
+.editor__editable,
+/* Classic build. */
+.ck-editor[role='application'] .ck.ck-content,
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+    width: 100%;
+    background: #fff;
+    font-size: 1em;
+    line-height: 1.6em;
+    min-height: 350px;
+    padding: 1.5em 2em;
+}

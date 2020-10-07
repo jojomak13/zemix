@@ -77,6 +77,7 @@
 
     {{-- Start Scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('js')
     {{-- End Scripts --}}
 </body>
 </html>
