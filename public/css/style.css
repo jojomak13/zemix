@@ -2,6 +2,11 @@ body {
     background-color: aliceblue;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 .stats .stat {
     margin: 5px 0;
 }

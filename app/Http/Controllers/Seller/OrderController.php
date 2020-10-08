@@ -29,7 +29,12 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        return auth('seller')->user()->orders()->findOrFail($id);
+        $order = auth('seller')->user()->orders()->findOrFail($id);
+        $order->load('city:id,name');
+        $order->load('status:id,name');
+
+        // return $order;
+        return view('seller.orders.show', compact('order'));
     }
 
     public function validator($data)

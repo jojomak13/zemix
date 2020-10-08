@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seller.master')
 
 @section('title', 'Profile')
 
@@ -112,6 +112,10 @@
         </div>
     </div>
     {{-- End Stats --}}
+
+    {{-- Start Alerts --}}
+    @include('layouts.seller._alerts')
+    {{-- End Alerts --}}
 
     {{-- Start Orders --}}
     <div class="card" id="orders">

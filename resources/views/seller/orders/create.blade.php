@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seller.master')
 
 @section('title', 'New Order')
 
@@ -107,7 +107,7 @@
                         {{-- Start Content --}}
                         <div class="form-group">
                             <label for="content">Content <abbr title="Required Field">*</abbr></label>
-                            <textarea id="content" name="content" class="editor form-control @error('content') is-invalid @enderror" required>{{ old('content') }}</textarea>
+                            <textarea id="content" name="content" class="form-control editor @error('content') is-invalid @enderror" required>{{ old('content') }}</textarea>
                             @error('content')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -121,38 +121,4 @@
         </div>
     </form>
 </div>
-@endsection
-
-
-@section('js')
-<script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
-<script>
-    ClassicEditor.create(document.querySelector( '.editor' ), {
-        toolbar: {
-            items: [
-                'heading',
-                '|',
-                'bold',
-                'italic',
-                'bulletedList',
-                'numberedList',
-                '|',
-                'indent',
-                'outdent',
-                '|',
-                'insertTable',
-                'undo',
-                'redo'
-            ]
-        },
-        language: 'en',
-        table: {
-            contentToolbar: [
-                'tableColumn',
-                'tableRow',
-                'mergeTableCells'
-            ]
-        },
-    })
-</script>
 @endsection
