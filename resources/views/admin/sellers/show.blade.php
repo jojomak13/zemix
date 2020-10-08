@@ -33,7 +33,7 @@
                     <tr class="bg-info text-white">
                         <td>{{ $transaction->created_at->toDateString() }}</td>
                         <td colspan="2"></td>
-                        <td><label class="badge badge-success p-2">{{ $transaction->status }}</label></td>
+                        <td><label class="label label-success p-2">{{ $transaction->status }}</label></td>
                         <td colspan="2"></td>
                         <td><strong>@money($transaction->price)</strong></td>
                     </tr>
@@ -42,7 +42,7 @@
                         <td>{{ $transaction->created_at->toDateString() }}</td>
                         <td>{{ $transaction->barcode }}</td>
                         <td>{{ $transaction->client_name }}</td>
-                        <td><label class="badge badge-primary p-2">{{ $transaction->status }}</label></td>
+                        <td><label class="label label-primary p-2">{{ $transaction->status }}</label></td>
                         <td>@money($transaction->total_amount)</td>
                         <td>@money($transaction->shipping_price)</td>
                         <td>@money($transaction->price)</td>
