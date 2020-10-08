@@ -12,20 +12,20 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
+        // Note:: dont't change the order of them
         $statuses = [
-           'processing' => '',
-           'picked up' => '',
-           'preapering for shipment' => '',
-           'shipped' => '',
-           'delivered' => '',
-           'done cash recieved' => '',
-           'cod received' => '', 
-           'failed' => 'fees collected form client',
-           'canceled' => 'fees not collected',
-           'couldn’t reach client' => '',
-           'client rescheduled' => '',
-           'reshelved' => '',
-           'return to seller' => ''
+           'Processing' => '',
+           'Picked up' => '',
+           'Preapering for shipment' => '',
+           'Shipped' => '',
+           'Delivered' => '',
+           'COD received' => 'cash on delivery', 
+           'Failed' => 'fees collected form client',
+           'Canceled' => 'fees not collected',
+           'Couldn’t reach client' => '',
+           'Client rescheduled' => '',
+           'Reshelved' => '',
+           'Return to seller' => ''
         ];
 
         foreach($statuses as $name => $desc){

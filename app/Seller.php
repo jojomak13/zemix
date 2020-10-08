@@ -37,6 +37,11 @@ class Seller extends Authenticatable
         return $this->hasMany(Order::class, 'seller_id', 'id');
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class)->latest();
+    }
+
     public function syncCitiesShipping($prices, $cities)
     {
         $data = [];

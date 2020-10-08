@@ -13,6 +13,19 @@
         </div>
         @endif
         {{-- End Success alert --}}
+
+        {{-- Start Info alert --}}
+        @if(session()->has('info'))
+        <div class="col-12 mt-2">
+            <div class="alert alert-info background-info">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="icofont icofont-close-line-circled text-white"></i>
+                </button>
+                <strong>Info!</strong> {{ session('info') }}
+            </div>
+        </div>
+        @endif
+        {{-- End Info alert --}}
         
         {{-- Start warning alert --}}
         @if(session()->has('warning'))

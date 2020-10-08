@@ -9,6 +9,7 @@ Route::middleware('auth:admin')->group(function(){
     Route::resource('/cities', 'CityController');
     Route::resource('/sellers', 'SellerController');
     Route::post('/sellers/{seller}/activate', 'SellerController@activate')->name('sellers.activate');
+    Route::post('/sellers/{seller}/transaction', 'SellerController@transaction')->name('sellers.transaction');
     Route::resource('/orders', 'OrderController')->except(['create', 'store']);
     Route::get('/orders/{order}/history', 'OrderController@history');
     Route::resource('/drivers', 'DriverController');

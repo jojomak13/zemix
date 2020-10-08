@@ -22,6 +22,13 @@ class HomeController extends Controller
         return view('seller.profile.index', compact('orders'));
     }
 
+    public function balance()
+    {
+        $transactions = auth('seller')->user()->transactions()->paginate(10);
+
+        return view('seller.profile.balance', compact('transactions'));
+    }
+
     public function edit(Request $request)
     {
         $profile = auth('seller')->user();

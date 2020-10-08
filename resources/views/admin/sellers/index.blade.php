@@ -28,7 +28,7 @@
                         <td>{{ $seller->phone }}</td>
                         <td>{{ $seller->city->name }}</td>
                         <td>
-                            <a href="#" class="btn btn-primary"><i class="feather icon-eye"></i></a>
+                            <a href="{{ route('admin.sellers.show', $seller) }}" class="btn btn-primary"><i class="fa fa-exchange-alt"></i></a>
                             @if($seller->is_active)
                                 <a href="javascript:void(0)" class="btn btn-info" title="Block" onclick="this.children[1].submit()">
                                     <i class="feather icon-alert-triangle"></i>

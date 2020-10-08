@@ -32,7 +32,7 @@ $factory->define(Order::class, function (Faker $faker) {
         'price' => $faker->randomFloat(2, 50, 1500),
         'seller_id' => $faker->numberBetween(1, 100), 
         'city_id' => $faker->numberBetween(1, 10),
-        'status_id' => $faker->numberBetween(1, 13),
+        'status_id' => $faker->numberBetween(1, 12),
         'driver_id' => $driverId,
     ];
 });

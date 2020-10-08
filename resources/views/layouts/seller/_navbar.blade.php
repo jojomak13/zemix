@@ -30,7 +30,7 @@
                         <a class="dropdown-item" href="{{ route('seller.home') }}">Profile</a>
                         <a class="dropdown-item" href="{{ route('seller.orders.create') }}">New Order</a>
                         <a class="dropdown-item" href="#">Cash Request</a>
-                        <a class="dropdown-item" href="#">History</a>
+                        <a class="dropdown-item" href="{{ route('seller.balance') }}">Balance</a>
                         <a class="dropdown-item" href="{{ route('seller.edit') }}">Edit Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\City;
 use App\Seller;
+use App\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -69,7 +70,9 @@ class SellerController extends Controller
      */
     public function show(Seller $seller)
     {
-        //
+        $transactions = $seller->transactions()->paginate(10);
+
+        return view('admin.sellers.show', compact('transactions', 'seller'));
     }
 
     /**
@@ -133,8 +136,24 @@ class SellerController extends Controller
             $seller->update(['is_active' => true]);
             session()->flash('success', 'Seller activated successfully');
         }
-
+        
         return redirect()->route('admin.sellers.index');
+    }
+    
+    public function transaction(Seller $seller, Request $request)
+    {
+        $request->validate(['amount' => 'required']);
+        
+        $seller->transactions()->create([
+            'barcode' => '',
+            'client_name' => '',
+            'status' => 'paid',
+            'price' => $request->get('amount'),
+            'shipping_price' => 0
+        ]);
+            
+        session()->flash('success', 'Transaction created successfully');
+        return redirect()->route('admin.sellers.show', $seller);
     }
 
     public function validator($data, $seller = NULL)

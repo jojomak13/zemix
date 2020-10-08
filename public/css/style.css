@@ -7,6 +7,12 @@ ul {
     padding: 0;
 }
 
+.page-header {
+    text-align: center;
+    margin: 10px 0 20px;
+    color: #333;
+}
+
 .stats .stat {
     margin: 5px 0;
 }

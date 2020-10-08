@@ -4,6 +4,9 @@
 
 @section('content')
 <div class="container">
+    <div class="page-header">
+        <h1>New Order</h1>
+    </div>
     <form action="{{ route('seller.orders.store') }}" method="POST" autocomplete="off">
         @csrf
         <div class="row">
