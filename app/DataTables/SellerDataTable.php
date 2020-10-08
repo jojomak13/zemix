@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Seller;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -20,18 +21,18 @@ class SellerDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'sellerdatatable.action');
+            ->addColumn('action', 'admin.sellers.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\SellerDataTable $model
+     * @param \App\Seller $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(SellerDataTable $model)
+    public function query()
     {
-        return $model->newQuery();
+        return Seller::with(['city:id,name']);
     }
 
     /**
@@ -46,13 +47,11 @@ class SellerDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0, 'desc')
                     ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
+                        Button::make('excel')->text('<i class="fa fa-file-excel"> Excel'),
+                        Button::make('print')->text('<i class="fa fa-print"> Print'),
+                        Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')
                     );
     }
 
@@ -64,15 +63,14 @@ class SellerDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('name'),
+            Column::make('company_name'),
+            Column::make('phone'),
+            Column::make('City')->name('city.name')->data('city.name'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 

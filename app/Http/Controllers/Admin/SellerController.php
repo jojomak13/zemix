@@ -6,6 +6,7 @@ use App\City;
 use App\Seller;
 use App\Transaction;
 use Illuminate\Http\Request;
+use App\DataTables\SellerDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,10 +26,9 @@ class SellerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SellerDataTable $datatable)
     {
-        $sellers = Seller::latest()->with('city:id,name')->paginate(5);
-        return view('admin.sellers.index', compact('sellers'));
+        return $datatable->render('admin.sellers.index');
     }
 
     /**
