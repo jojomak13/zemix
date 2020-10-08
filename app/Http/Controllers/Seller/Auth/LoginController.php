@@ -27,9 +27,14 @@ class LoginController extends Controller
         ]);
         
         $login = Auth::guard('seller')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'));
-
         if($login){
-            return redirect()->route('seller.home');
+            if(auth('seller')->user()->is_active){
+                return redirect()->route('seller.home');
+            } else {
+                Auth::guard('seller')->logout();
+                session()->flash('error', 'Your account is not activated, please contact our help desk!');
+                return back();
+            }
         }
 
         session()->flash('error', 'Invalid Credentials!');

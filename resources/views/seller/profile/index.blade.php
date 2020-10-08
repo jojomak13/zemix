@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     {{-- Start Stats --}}
-    <div class="row mb-4 stats">
+    {{-- <div class="row mb-4 stats">
         <div class="stat col-md-3">
             <div class="card">
                 <div class="card-body d-flex align-items-center">
@@ -110,7 +110,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- End Stats --}}
 
     {{-- Start Alerts --}}
@@ -125,9 +125,11 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>Barcode</th>
                             <th>Client Name</th>
                             <th>Phone</th>
                             <th>City</th>
+                            <th>Address</th>
                             <th>Status</th>
                             <th>Price</th>
                             <th>Shipping Price</th>
@@ -137,9 +139,11 @@
                     <tbody>
                         @foreach($orders as $order)
                         <tr>
+                            <td>{{ $order->barcode }}</td>
                             <td>{{ $order->client_name }}</td>
                             <td><a href="tel:{{ $order->phone }}">{{ $order->phone }}</a></td>
                             <td>{{ $order->city->name }}</td>
+                            <td title="{{ $order->address }}" data-toggle="tooltip">{{ substr($order->address, 0, 35) }}...</td>
                             <td>{{ $order->status->name }}</td>
                             <td>@money($order->price)</td>
                             <td>@money($order->shipping_price)</td>
@@ -159,3 +163,4 @@
     {{-- End Orders --}}
 </div>
 @endsection
+

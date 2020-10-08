@@ -8,6 +8,9 @@
                 <div class="card-header">Seller Login</div>
 
                 <div class="card-body">
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
                     <form method="POST" action="{{ route('seller.login') }}">
                         @csrf
 
