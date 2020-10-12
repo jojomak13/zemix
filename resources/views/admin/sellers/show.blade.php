@@ -45,7 +45,13 @@
                         <td><label class="label label-primary p-2">{{ $transaction->status }}</label></td>
                         <td>@money($transaction->total_amount)</td>
                         <td>@money($transaction->shipping_price)</td>
-                        <td>@money($transaction->price)</td>
+                        @if($transaction->status == 'Canceled')
+                            <td>@money($transaction->shipping_price)</td>
+                        @elseif($transaction->status == 'Failed')
+                            <td>@money(0)</td>
+                        @else
+                            <td>@money($transaction->price)</td>
+                        @endif
                     </tr>   
                     @endif
                 @empty

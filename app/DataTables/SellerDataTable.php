@@ -63,6 +63,7 @@ class SellerDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('#')->name('id')->data('id'),
             Column::make('name'),
             Column::make('company_name'),
             Column::make('phone'),

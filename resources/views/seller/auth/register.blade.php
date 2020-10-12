@@ -78,9 +78,10 @@
                             <label for="city_id" class="col-md-4 col-form-label text-md-right">City</label>
                             <div class="col-md-6">
                                 <select id="city_id" class="form-control @error('city_id') is-invalid @enderror" name="city_id" required>
-                                    <option value="1">Select Ciy</option>
-                                    <option value="1">Cairo</option>
-                                    <option value="2">Alex</option>
+                                    <option value="" selected>Select City</option>
+                                    @foreach($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                    @endforeach
                                 </select>
                                 @error('city_id')
                                     <span class="invalid-feedback" role="alert">

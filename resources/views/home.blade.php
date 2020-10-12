@@ -12,7 +12,6 @@
 @section('js')
 <script src="{{ asset('js/particles.min.js') }}"></script>
 <script>
-    
 particlesJS('banner',
   {
     "particles": {

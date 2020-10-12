@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Seller\Auth;
 
+use App\City;
 use App\Seller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,13 +26,14 @@ class RegisterController extends Controller
             'company_name' => 'required|max:255',
             'city_id' => 'required',
             'address' => 'required|max:255',
-            'phone' => 'required|min:11|max:11',
+            'phone' => 'required|min:11|max:11|unique:sellers',
         ]);
     }
 
     public function showRegistrationForm()
     {
-        return view('seller.auth.register');
+        $cities = City::select('id', 'name')->get();
+        return view('seller.auth.register', compact('cities'));
     }
     
     public function register(Request $request)
@@ -41,7 +43,7 @@ class RegisterController extends Controller
         $data = $request->all();
         $data['password'] = bCrypt($request->password);
 
-        Seller::create($data);
+        return Seller::create($data);
 
         return redirect('/');;
     }
