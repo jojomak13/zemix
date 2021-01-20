@@ -71,8 +71,14 @@ class SellerController extends Controller
     public function show(Seller $seller)
     {
         $transactions = $seller->transactions()->paginate(10);
+        $stats = Transaction::selectRaw('sum(seller_fees) as seller_fees')
+        ->where([
+            'seller_id' => $seller->id,
+            'closed'    => 0
+        ])
+        ->firstOrFail();
 
-        return view('admin.sellers.show', compact('transactions', 'seller'));
+        return view('admin.sellers.show', compact('transactions', 'seller', 'stats'));
     }
 
     /**
@@ -148,10 +154,13 @@ class SellerController extends Controller
             'barcode' => '',
             'client_name' => '',
             'status' => 'paid',
-            'price' => $request->get('amount'),
-            'shipping_price' => 0
+            'total_amount' => 0,
+            'shipping_fees' => 0,
+            'seller_fees' => $request->get('amount'),
         ]);
-            
+        
+        $seller->transactions()->where('closed', 0)->update(['closed' => 1]);
+
         session()->flash('success', 'Transaction created successfully');
         return redirect()->route('admin.sellers.show', $seller);
     }

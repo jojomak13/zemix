@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Seller;
 
 use App\City;
 use Validator;
+use App\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -26,7 +28,19 @@ class HomeController extends Controller
     {
         $transactions = auth('seller')->user()->transactions()->paginate(10);
 
-        return view('seller.profile.balance', compact('transactions'));
+        $stats = Transaction::select([
+            DB::raw('count(*) as total_transactions'),
+            DB::raw('sum(total_amount) as total_amount'),
+            DB::raw('sum(shipping_fees) as shipping_fees'),
+            DB::raw('sum(seller_fees) as seller_fees'),
+        ])
+        ->where([
+            'seller_id' => auth('seller')->user()->id,
+            'closed'    => 0
+        ])
+        ->firstOrFail();
+        
+        return view('seller.profile.balance', compact('transactions', 'stats'));
     }
 
     public function edit(Request $request)

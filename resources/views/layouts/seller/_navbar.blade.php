@@ -14,7 +14,7 @@
                     <a href="{{ route('seller.orders.create') }}" class="nav-link">New Order</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Make Request</a>
+                    <a href="{{ route('seller.balance') }}" class="nav-link">Balance</a>
                 </li>
             </ul>
             @endauth
@@ -29,7 +29,6 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('seller.home') }}">Profile</a>
                         <a class="dropdown-item" href="{{ route('seller.orders.create') }}">New Order</a>
-                        <a class="dropdown-item" href="#">Cash Request</a>
                         <a class="dropdown-item" href="{{ route('seller.balance') }}">Balance</a>
                         <a class="dropdown-item" href="{{ route('seller.edit') }}">Edit Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"

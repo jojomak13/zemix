@@ -35,7 +35,7 @@
                         <td colspan="2"></td>
                         <td><label class="label label-success p-2">{{ $transaction->status }}</label></td>
                         <td colspan="2"></td>
-                        <td><strong>@money($transaction->price)</strong></td>
+                        <td><strong>@money($transaction->seller_fees)</strong></td>
                     </tr>
                     @else
                     <tr>
@@ -83,7 +83,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="amount">Transaction Amount</label>
-                        <input type="number" class="form-control" min="1" step=".5" id="amount" name="amount" required>
+                        <input type="number" class="form-control" step=".5" value="{{ $stats->seller_fees }}" id="amount" name="amount" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Submit</button>

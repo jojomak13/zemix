@@ -81,32 +81,28 @@ class OrderObserver
      */
     public function updated(Order $order)
     {
-        // In case of order status is COD
-        if($order->status_id == 6 || $order->status_id == 8){
-            Transaction::create([   
-                'barcode' => $order->barcode,
-                'client_name' => $order->client_name,
-                'status' => $order->status->name,
-                'price' => $order->price,
-                'shipping_price' => $order->shipping_price,
-                'seller_id' => $order->seller_id
-            ]);
+        if(in_array($order->status_id, [6, 8, 7])){
+            $data = [
+                'barcode'       => $order->barcode,
+                'client_name'   => $order->client_name,
+                'status'        => $order->status->name,
+                'total_amount'  => ($order->price + $order->shipping_price),
+                'shipping_fees' => $order->shipping_price,
+                'seller_fees'   => $order->price,
+                'seller_id'     => $order->seller_id
+            ];
             
-            session()->flash('info', 'Order moved to seller balance successfully.');
+            if($order->status_id == 8) {  // In case of order status is Cancelled
+                $data['total_amount'] = 0;
+                $data['seller_fees']  = ($order->shipping_price * -1);
 
-        } else if($order->status_id == 7) {
-            // In case of order status is Failed
-            Transaction::create([   
-                'barcode' => $order->barcode,
-                'client_name' => $order->client_name,
-                'status' => $order->status->name,
-                'price' => $order->price,
-                'shipping_price' => 0,
-                'seller_id' => $order->seller_id
-            ]);
+            } else if($order->status_id == 7) { // In case of order status is Failed
+                $data['total_amount'] = $order->shipping_price;
+                $data['seller_fees'] = 0;
+            }
             
+            Transaction::create($data);
             session()->flash('info', 'Order moved to seller balance successfully.');
-
         }
     }
 
