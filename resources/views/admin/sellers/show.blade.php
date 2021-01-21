@@ -44,14 +44,8 @@
                         <td>{{ $transaction->client_name }}</td>
                         <td><label class="label label-primary p-2">{{ $transaction->status }}</label></td>
                         <td>@money($transaction->total_amount)</td>
-                        <td>@money($transaction->shipping_price)</td>
-                        @if($transaction->status == 'Canceled')
-                            <td>@money($transaction->shipping_price)</td>
-                        @elseif($transaction->status == 'Failed')
-                            <td>@money(0)</td>
-                        @else
-                            <td>@money($transaction->price)</td>
-                        @endif
+                        <td>@money($transaction->shipping_fees)</td>
+                        <td>@money($transaction->seller_fees)</td>
                     </tr>   
                     @endif
                 @empty

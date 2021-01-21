@@ -97,9 +97,9 @@
                             <td>{{ $transaction->barcode }}</td>
                             <td>{{ $transaction->client_name }}</td>
                             @if($transaction->status == 'Canceled')
-                            <td><label class="badge badge-warning p-2">{{ $transaction->status }}</label></td>
-                            @elseif($transaction->status == 'Failed')
                             <td><label class="badge badge-danger p-2">{{ $transaction->status }}</label></td>
+                            @elseif($transaction->status == 'Fees Collected')
+                            <td><label class="badge badge-warning p-2">{{ $transaction->status }}</label></td>
                             @elseif($transaction->status == 'COD received')
                             <td><label class="badge badge-success p-2">{{ $transaction->status }}</label></td>
                             @else

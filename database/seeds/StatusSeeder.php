@@ -20,12 +20,13 @@ class StatusSeeder extends Seeder
            'Shipped' => '',
            'Delivered' => '',
            'COD received' => 'cash on delivery', 
-           'Failed' => 'fees collected form client',
+           'Fees Collected' => 'fees collected form client',
            'Canceled' => 'fees not collected',
            'Couldn’t reach client' => '',
            'Client rescheduled' => '',
            'Reshelved' => '',
-           'Return to seller' => ''
+           'Return to seller' => '',
+           'Failed' => ''
         ];
 
         foreach($statuses as $name => $desc){
