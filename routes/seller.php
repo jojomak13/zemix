@@ -9,7 +9,7 @@ Route::middleware('auth:seller')->group(function(){
 
     Route::get('/balance', 'HomeController@balance')->name('balance');
 
-    Route::get('/orders/create', 'Ordercontroller@create')->name('orders.create');
-    Route::post('/orders', 'Ordercontroller@store')->name('orders.store');
+    Route::get('/orders/create', 'OrderController@create')->name('orders.create');
+    Route::post('/orders', 'OrderController@store')->name('orders.store');
     Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
 });
