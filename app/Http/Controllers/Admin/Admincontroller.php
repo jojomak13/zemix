@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class Admincontroller extends Controller
+class AdminController extends Controller
 {
 
     public function __construct()
