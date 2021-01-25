@@ -43,7 +43,7 @@ class RegisterController extends Controller
         $data = $request->all();
         $data['password'] = bCrypt($request->password);
 
-        return Seller::create($data);
+        Seller::create($data);
 
         return redirect('/');;
     }
