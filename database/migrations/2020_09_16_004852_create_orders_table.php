@@ -35,6 +35,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('SET NULL');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -19,6 +19,7 @@ class CreateCitiesTable extends Migration
             $table->string('zip_code');
             $table->double('shipping_price', 5, 2);
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

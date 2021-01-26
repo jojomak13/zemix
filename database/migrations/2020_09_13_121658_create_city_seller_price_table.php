@@ -21,6 +21,7 @@ class CreateCitySellerPriceTable extends Migration
             $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

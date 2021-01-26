@@ -25,6 +25,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('seller_id')->nullable();
             $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

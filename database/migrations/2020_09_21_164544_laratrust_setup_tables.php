@@ -20,6 +20,7 @@ class LaratrustSetupTables extends Migration
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 
         // Create table for storing permissions
@@ -29,6 +30,7 @@ class LaratrustSetupTables extends Migration
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 
         // Create table for associating roles to users and teams (Many To Many Polymorphic)
@@ -43,6 +45,7 @@ class LaratrustSetupTables extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->primary(['user_id', 'role_id', 'user_type']);
+            $table->engine = 'InnoDB';
         });
 
         // Create table for associating permissions to users (Many To Many Polymorphic)
@@ -55,6 +58,7 @@ class LaratrustSetupTables extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->primary(['user_id', 'permission_id', 'user_type']);
+            $table->engine = 'InnoDB';
         });
 
         // Create table for associating permissions to roles (Many-to-Many)
@@ -68,6 +72,7 @@ class LaratrustSetupTables extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->primary(['permission_id', 'role_id']);
+            $table->engine = 'InnoDB';
         });
     }
 
