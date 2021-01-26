@@ -31,10 +31,11 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {   
-        return Order::select('orders.id', 'client_name', 'orders.phone', 'price',  'orders.shipping_price', 'city_id', 'status_id', 'driver_id')
+        return Order::select('orders.id', 'price',  'orders.shipping_price', 'city_id', 'status_id', 'driver_id', 'seller_id')
             ->with('city:id,name')
             ->with('status:id,name')
-            ->with('driver:id,name');
+            ->with('driver:id,name')
+            ->with('seller:id,company_name');
     }
 
     /**
@@ -66,8 +67,7 @@ class OrderDataTable extends DataTable
     {
         return [
             Column::make('#')->data('id')->name('id'),
-            Column::make('client_name'),
-            Column::make('phone'),
+            Column::make('Company')->data('seller.company_name')->name('seller.company_name'),
             Column::make('Price')->data('price'),
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),
