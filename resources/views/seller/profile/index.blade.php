@@ -54,5 +54,43 @@
     </div>
     {{-- End Orders --}}
 </div>
+
+{{-- Start Import File Modal --}}
+<div class="modal fade" id="import_orders_modal" tabindex="-1" aria-labelledby="import_orders_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="{{ route('seller.orders.upload') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="import_orders_modal">Import Orders</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="file">Upload</span>
+                        </div>
+                        <div class="custom-file @error('file')is-invalid @enderror">
+                            <input type="file" name="file" class="custom-file-input @error('file') is-invalid @enderror" id="file" aria-describedby="file">
+                            <label class="custom-file-label" for="file">Choose file</label>
+                        </div>
+                        @error('file')
+                        <div class="invalid-feedback">
+                            <span>{{ $message }}</span>
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- End Import File Modal --}}
 @endsection
 

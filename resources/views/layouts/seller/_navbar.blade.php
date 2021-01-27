@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a href="{{ route('seller.orders.create') }}" class="nav-link">New Order</a>
                 </li>
+                <li class="nav-item" data-toggle="modal" data-target="#import_orders_modal">
+                    <a href="#" class="nav-link">Import</a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('seller.balance') }}" class="nav-link">Balance</a>
                 </li>

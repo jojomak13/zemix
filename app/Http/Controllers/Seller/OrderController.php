@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Seller;
 use App\City;
 use App\Order;
 use Validator;
+use App\Imports\OrderImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -35,6 +37,18 @@ class OrderController extends Controller
 
         // return $order;
         return view('seller.orders.show', compact('order'));
+    }
+
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file|mimes:xlsx,xls|max:512'
+        ]);
+
+        Excel::import(new OrderImport, request()->file('file'));
+        
+        session()->flash('success', 'Orders Imported Successfully.');
+        return redirect()->route('seller.home');
     }
 
     public function validator($data)
