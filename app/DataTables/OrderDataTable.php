@@ -68,7 +68,7 @@ class OrderDataTable extends DataTable
         return [
             Column::make('#')->data('id')->name('id'),
             Column::make('Company')->data('seller.company_name')->name('seller.company_name'),
-            Column::make('Price')->data('price'),
+            Column::make('Total Price')->data('total_price'),
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),
             Column::make('Status')->data('status.name')->name('status.name'),

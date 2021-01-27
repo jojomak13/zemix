@@ -11,6 +11,8 @@ class Order extends Model
         'client_name', 'phone', 'content', 'description', 'notes', 'address', 'history', 'barcode', 'price', 'shipping_price', 'seller_id', 'city_id', 'status_id', 'driver_id'
     ];
 
+    protected $appends = ['total_price'];
+
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -34,6 +36,11 @@ class Order extends Model
     public function getSerializedHistoryAttribute()
     {
         return json_decode($this->history);
+    }
+
+    public function getTotalPriceAttribute()
+    {
+        return $this->price + $this->shipping_price;
     }
 
 }
