@@ -57,6 +57,10 @@ class OrderDataTable extends DataTable
             ->dom('Bfrtip')
             ->orderBy(1, 'desc')
             ->parameters([
+                'autoWidth' => false,
+                'columnDefs' => [
+                    ['visible' => false, 'targets' => [7], 'className' => 'hidden' ]
+                ]
             ])
             ->buttons(
                 Button::make('excel')->text('<i class="fa fa-file-excel"> Excel')->className('btn btn-success'),
@@ -81,7 +85,7 @@ class OrderDataTable extends DataTable
                 ->orderable(false)
                 ->searchable(false),
             Column::make('#')->data('id')->name('id'),
-            Column::make('Company')->data('seller.company_name')->name('seller.company_name'),
+            Column::make('Company')->width('auto')->data('seller.company_name')->name('seller.company_name'),
             Column::make('Client')->data('client_name')->name('client_name'),
             Column::make('Total Price')->data('total_price')->searchable(false)->sortable(false),
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
