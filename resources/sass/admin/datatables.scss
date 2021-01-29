@@ -1,2 +1,13 @@
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
 @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
+
+.dt-button-collection {
+    top: 4px !important;
+    left: 1px !important;
+    border-radius: 0 !important;
+}
+
+.dt-button-collection .dt-button.dropdown-item {
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
+}

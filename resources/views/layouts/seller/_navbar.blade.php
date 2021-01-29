@@ -11,10 +11,10 @@
             @auth
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="{{ route('seller.orders.create') }}" class="nav-link">New Order</a>
+                    <a href="{{ route('seller.orders.create') }}" class="nav-link">New order</a>
                 </li>
                 <li class="nav-item" data-toggle="modal" data-target="#import_orders_modal">
-                    <a href="#" class="nav-link">Import</a>
+                    <a href="#" class="nav-link">Import as excel</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('seller.balance') }}" class="nav-link">Balance</a>

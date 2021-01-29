@@ -92,4 +92,12 @@ class OrderController extends Controller
         session()->flash('success', 'Order deleted successfully');
         return redirect()->route('admin.orders.index');
     }
+
+    public function print(Request $request)
+    {
+        $request->validate(['orders' => 'required|array']);
+        
+        $orders = Order::whereIn('id', $request->input('orders'))->get();
+        return view('admin.orders.show', compact('orders'));
+    }
 }

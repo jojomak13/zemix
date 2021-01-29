@@ -33,12 +33,12 @@ class OrderImport implements ToModel, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            'name'    => 'required',
-            'phone'   => 'required',
+            'name'    => 'required|min:5|max:255',
+            'phone'   => 'required|min:11|max:11',
             'price'   => 'required',
-            'city'    => 'required|exists:cities,id',
             'address' => 'required',
-            'content' => 'required' 
+            'city' => 'required|exists:cities,id',
+            'content' => 'required'
         ];
     }
 }

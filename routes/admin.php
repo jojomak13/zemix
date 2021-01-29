@@ -11,6 +11,7 @@ Route::middleware('auth:admin')->group(function(){
     Route::post('/sellers/{seller}/activate', 'SellerController@activate')->name('sellers.activate');
     Route::post('/sellers/{seller}/transaction', 'SellerController@transaction')->name('sellers.transaction');
     Route::resource('/orders', 'OrderController')->except(['create', 'store']);
+    Route::post('/orders/print', 'Ordercontroller@print')->name('orders.print');
     Route::get('/orders/{order}/history', 'OrderController@history');
     Route::resource('/drivers', 'DriverController');
     Route::resource('/admins', 'AdminController');

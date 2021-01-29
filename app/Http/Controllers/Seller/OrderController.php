@@ -59,7 +59,7 @@ class OrderController extends Controller
             'price' => 'required|numeric',
             'address' => 'required|string',
             'description' => 'string|nullable',
-            'city_id' => 'required',
+            'city_id' => 'required|exists:cities,id',
             'content' => 'required'
         ], [], [
             'city_id' => 'City'

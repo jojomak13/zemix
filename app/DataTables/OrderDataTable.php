@@ -21,7 +21,12 @@ class OrderDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'admin.orders.action');
+            ->addColumn('action', 'admin.orders.action')
+            ->addColumn('checkbox', 'admin.orders.checkbox')
+            ->rawColumns([
+                'action',
+                'checkbox'
+            ]);
     }
 
     /**
@@ -31,7 +36,7 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {   
-        return Order::select('orders.id', 'price',  'orders.shipping_price', 'city_id', 'status_id', 'driver_id', 'seller_id')
+        return Order::select('orders.id', 'client_name', 'price', 'address', 'orders.shipping_price', 'city_id', 'status_id', 'driver_id', 'seller_id')
             ->with('city:id,name')
             ->with('status:id,name')
             ->with('driver:id,name')
@@ -50,11 +55,15 @@ class OrderDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
-            ->orderBy(0, 'desc')
+            ->orderBy(1, 'desc')
+            ->parameters([
+            ])
             ->buttons(
-                Button::make('excel')->text('<i class="fa fa-file-excel"> Excel'),
-                Button::make('print')->text('<i class="fa fa-print"> Print'),
-                Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')
+                Button::make('excel')->text('<i class="fa fa-file-excel"> Excel')->className('btn btn-success'),
+                Button::make('print')->text('<i class="fa fa-print"> Print')->className('btn btn-primary'),
+                Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')->className('btn btn-info'),
+                Button::make('colvis')->text('<i class="fa fa-eye"></i> visibility')->className('btn btn-info visibility-btn')->columns(':gt(1):lt(7)'),
+                Button::raw(['text' => 'Print Selected', 'className' => 'printBtn'])
             );
     }
 
@@ -66,11 +75,18 @@ class OrderDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::computed('checkbox')
+                ->title('<input type="checkbox" class="check-all" onclick="checkAll()"/>')
+                ->exportable(false)
+                ->orderable(false)
+                ->searchable(false),
             Column::make('#')->data('id')->name('id'),
             Column::make('Company')->data('seller.company_name')->name('seller.company_name'),
-            Column::make('Total Price')->data('total_price'),
+            Column::make('Client')->data('client_name')->name('client_name'),
+            Column::make('Total Price')->data('total_price')->searchable(false)->sortable(false),
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),
+            Column::make('Address')->data('address')->name('address'),
             Column::make('Status')->data('status.name')->name('status.name'),
             Column::make('Driver')->data('driver.name')->name('driver.name')->render(function(){
                 return 'function(data,type,full,meta){ return data || "Not Set"; }';
@@ -78,6 +94,7 @@ class OrderDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
+                  ->searchable(false)
                   ->addClass('text-center'),
         ];
     }
