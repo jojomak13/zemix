@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Order;
+use App\Status;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -50,6 +51,16 @@ class OrderDataTable extends DataTable
      */
     public function html()
     {
+        $statusDropDown = Status::select('name', 'id')->get()->map(function($el) {
+            return [
+                'text' => $el->name,
+                'action' => "function(){
+                    updateStatus($el->id)
+                    this.ajax.reload();
+                }" 
+            ];
+        })->toArray();
+        
         return $this->builder()
             ->setTableId('orders-table')
             ->columns($this->getColumns())
@@ -64,10 +75,15 @@ class OrderDataTable extends DataTable
             ])
             ->buttons(
                 Button::make('excel')->text('<i class="fa fa-file-excel"> Excel')->className('btn btn-success'),
-                Button::make('print')->text('<i class="fa fa-print"> Print')->className('btn btn-primary'),
-                Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')->className('btn btn-info'),
+                Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')->className('btn btn-secondary'),
                 Button::make('colvis')->text('<i class="fa fa-eye"></i> visibility')->className('btn btn-info visibility-btn')->columns(':gt(1):lt(8)'),
-                Button::raw(['text' => 'Print Selected', 'className' => 'printBtn'])
+                Button::raw(['text' => 'Print Selected', 'className' => 'printBtn', 'className' => 'btn btn-primary']),
+                [
+                    'extend'    => 'collection',
+                    'text'      => 'Status',
+                    'className' => 'btn btn-warning',
+                    'buttons'   => $statusDropDown
+                ]
             );
     }
 

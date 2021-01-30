@@ -43,6 +43,20 @@
         })
     }
 
+    function updateStatus(statusId){
+        $('#status_id').val(statusId);
+        
+        let items = $('input[class="item-checkbox"]:checked').serializeArray().map(el => el.value);
+
+        $.ajax('{{ route('admin.orders.updateStatus') }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {items, statusId}
+        });
+    }
+
     $(document).on('click', '.printBtn', function(){
         $('#orders-form').submit();
     });

@@ -100,4 +100,16 @@ class OrderController extends Controller
         $orders = Order::whereIn('id', $request->input('orders'))->get();
         return view('admin.orders.show', compact('orders'));
     }
+
+    public function updateStatus(Request $request)
+    {
+        $request->validate([
+            'items'    => 'required|array|min:1|max:10',
+            'statusId' => 'required|exists:statuses,id'
+        ]);
+        
+        foreach($request->items as $orderId){
+            Order::findOrFail($orderId)->update(['status_id' => $request->statusId]);
+        }
+    }
 }
