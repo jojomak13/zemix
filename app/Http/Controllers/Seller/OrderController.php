@@ -35,7 +35,6 @@ class OrderController extends Controller
         $order->load('city:id,name');
         $order->load('status:id,name');
 
-        // return $order;
         return view('seller.orders.show', compact('order'));
     }
 
@@ -49,6 +48,14 @@ class OrderController extends Controller
         
         session()->flash('success', 'Orders Imported Successfully.');
         return redirect()->route('seller.home');
+    }
+
+    public function print(Request $request)
+    {
+        $request->validate(['orders' => 'required|array']);
+        
+        $orders = Order::whereIn('id', $request->input('orders'))->get();
+        return view('admin.orders.show', compact('orders'));
     }
 
     public function validator($data)

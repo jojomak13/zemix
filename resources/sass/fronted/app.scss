@@ -2,3 +2,8 @@
 @import "./variables";
 @import "~bootstrap/scss/bootstrap";
 @import "./bootswatch";
+
+.dataTables_filter {
+    display: block;
+    float: right;
+}

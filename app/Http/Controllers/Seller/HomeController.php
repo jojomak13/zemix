@@ -8,20 +8,13 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\DataTables\Seller\OrderDataTable;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function home(OrderDataTable $orders)
     {
-        $orders = auth('seller')
-            ->user()
-            ->orders()
-            ->latest()
-            ->with('status:id,name')
-            ->with('city:id,name')
-            ->paginate(10);
-
-        return view('seller.profile.index', compact('orders'));
+        return $orders->render('seller.profile.index');
     }
 
     public function balance()

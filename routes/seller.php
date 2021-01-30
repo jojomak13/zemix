@@ -11,6 +11,7 @@ Route::middleware('auth:seller')->group(function(){
 
     Route::get('/orders/create', 'OrderController@create')->name('orders.create');
     Route::post('/orders', 'OrderController@store')->name('orders.store');
+    Route::post('/orders/print', 'OrderController@print')->name('orders.print');
     Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
 
     Route::post('/orders/upload', 'OrderController@upload')->name('orders.upload');
