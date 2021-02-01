@@ -27,6 +27,10 @@ class OrderObserver
         } else {
             $order->shipping_price = $order->city->shipping_price;
         }
+
+        // Barcode
+        $faker = Factory::create();
+        $order->barcode = $faker->unique()->ean8;
     }
 
     /**
@@ -37,10 +41,7 @@ class OrderObserver
      */
     public function created(Order $order)
     {
-        // Barcode
-        $faker = Factory::create();
-        $order->barcode = $order->id . $order->id;
-        $order->save();
+        // 
     }
 
     /**

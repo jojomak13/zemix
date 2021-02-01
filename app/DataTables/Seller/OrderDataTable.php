@@ -40,7 +40,8 @@ class OrderDataTable extends DataTable
             ->where('seller_id', auth('seller')->user()->id)
             ->with('city:id,name')
             ->with('status:id,name')
-            ->with('seller:id,company_name');
+            ->with('seller:id,company_name')
+            ->orderBy('orders.id', 'desc');
     }
 
     /**

@@ -3,7 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers.">
 
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" content="@zemix">
+    <meta name="twitter:title" content="Zemix">
+    <meta name="twitter:description" content="Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers.">
+    <meta name="twitter:creator" content="@zemix">
+    <!-- Twitter Summary card images must be at least 120x120px -->
+    <meta name="twitter:image" content="{{ url('images/logo.png') }}">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Zemix for shipping" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ config('app.url') }}" />
+    <meta property="og:image" content="{{ url('images/logo.png') }}" />
+    <meta property="og:description" content="Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers." />
+    <meta property="og:site_name" content="Zemix" />
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

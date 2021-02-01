@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-md navbar-dark  shadow-sm">
+<nav class="home navbar fixed-top navbar-expand-md navbar-dark  shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img style="height:50px" src="{{ url('images/logo.png') }}" alt="{{ config('app.name') }} logo" title="{{ config('app.name') }} logo">

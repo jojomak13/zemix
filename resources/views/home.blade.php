@@ -16,13 +16,13 @@
                     <div class="icon">
                         <i class="fa fa-phone"></i>
                     </div>
-                    <a href="tel:+201228967279">+201228967279</a>
+                    <a href="tel:+201152053448">+201152053448</a>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <i class="fa fa-envelope"></i>
                     </div>
-                    <a href="mailto:jojomak@gmail.com">jojomak@gmail.com</a>
+                    <a href="mailto:jojomak@gmail.com">support@zemix.com</a>
                 </div>
                 <div class="card">
                     <div class="icon">
