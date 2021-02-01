@@ -19,6 +19,8 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ config('app.url') }}" />
     <meta property="og:image" content="{{ url('images/logo.png') }}" />
+    <meta property="og:image:width" content="423" />
+    <meta property="og:image:height" content="153" />
     <meta property="og:description" content="Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers." />
     <meta property="og:site_name" content="Zemix" />
     

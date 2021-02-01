@@ -22,7 +22,7 @@
                     <div class="icon">
                         <i class="fa fa-envelope"></i>
                     </div>
-                    <a href="mailto:jojomak@gmail.com">support@zemix.com</a>
+                    <a href="mailto:jojomak@gmail.com">support@zemix.org</a>
                 </div>
                 <div class="card">
                     <div class="icon">
