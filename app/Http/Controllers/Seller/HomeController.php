@@ -77,4 +77,14 @@ class HomeController extends Controller
 
         return Validator::make($data, $rules);
     }
+
+    public function cities()
+    {
+        $cities = City::with('prices')->paginate(10);
+
+        // return $cities;
+
+        return view('seller.cities', compact('cities'));
+    }
+
 }

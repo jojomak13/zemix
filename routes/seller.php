@@ -15,4 +15,6 @@ Route::middleware('auth:seller')->group(function(){
     Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
 
     Route::post('/orders/upload', 'OrderController@upload')->name('orders.upload');
+
+    Route::get('/cities', 'HomeController@cities')->name('cities');
 });

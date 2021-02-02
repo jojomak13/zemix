@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <a href="{{ route('seller.balance') }}" class="nav-link">Balance</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('seller.cities') }}" class="nav-link">Cities List</a>
+                </li>
             </ul>
             @endauth
 

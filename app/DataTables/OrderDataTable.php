@@ -77,7 +77,7 @@ class OrderDataTable extends DataTable
                 Button::make('excel')->text('<i class="fa fa-file-excel"> Excel')->className('btn btn-success'),
                 Button::make('reload')->text('<i class="fa fa-sync-alt"></i> Reload')->className('btn btn-secondary'),
                 Button::make('colvis')->text('<i class="fa fa-eye"></i> visibility')->className('btn btn-info visibility-btn')->columns(':gt(1):lt(8)'),
-                Button::raw(['text' => 'Print Selected', 'className' => 'printBtn', 'className' => 'btn btn-primary']),
+                Button::raw(['text' => 'Print Selected', 'className' => 'btn btn-primary printBtn']),
                 [
                     'extend'    => 'collection',
                     'text'      => 'Status',

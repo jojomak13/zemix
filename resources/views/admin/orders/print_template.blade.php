@@ -21,11 +21,6 @@
 </div>
 <div class="card mt-2">
   <div class="card-body">
-      {!! $order->content !!}
-  </div>
-</div>
-<div class="card mt-2">
-  <div class="card-body">
       <ul class="list mb-0">
           <li><span>السعر الكلى</span>: <span>{{ $order->price + $order->shipping_price}} ج.م </span></li>
       </ul>

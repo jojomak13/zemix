@@ -16,19 +16,19 @@
                     <div class="icon">
                         <i class="fa fa-phone"></i>
                     </div>
-                    <a href="tel:+201152053448">+201152053448</a>
+                    <a href="tel:+201095204943">+201095204943</a>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <i class="fa fa-envelope"></i>
                     </div>
-                    <a href="mailto:jojomak@gmail.com">support@zemix.org</a>
+                    <a href="mailto:support@zemix.org">support@zemix.org</a>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <i class="fa fa-map-marker"></i>
                     </div>
-                    <a href="javascript:void(0)">Amaadi, Cairo, Egypt</a>
+                    <a href="javascript:void(0)">3/4 Hay Street, off Algeria Street, next to the Republic headquarters, Al Basateen neighborhood, Maadi</a>
                 </div>
             </div>
             <div class="col-md-7">
@@ -46,123 +46,4 @@
         </span>
     </div>  
 </footer>
-@endsection
-
-@section('js')
-<script src="{{ asset('js/particles.min.js') }}"></script>
-<script>
-particlesJS('banner',
-  {
-    "particles": {
-      "number": {
-        "value": 80,
-        "density": {
-          "enable": true,
-          "value_area": 800
-        }
-      },
-      "color": {
-        "value": "#ffffff"
-      },
-      "shape": {
-        "type": "circle",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        },
-        "polygon": {
-          "nb_sides": 5
-        }
-      },
-      "opacity": {
-        "value": 0.5,
-        "random": false,
-        "anim": {
-          "enable": false,
-          "speed": 1,
-          "opacity_min": 0.1,
-          "sync": false
-        }
-      },
-      "size": {
-        "value": 5,
-        "random": true,
-        "anim": {
-          "enable": false,
-          "speed": 40,
-          "size_min": 0.1,
-          "sync": false
-        }
-      },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 6,
-        "direction": "none",
-        "random": false,
-        "straight": false,
-        "out_mode": "out",
-        "attract": {
-          "enable": false,
-          "rotateX": 600,
-          "rotateY": 1200
-        }
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse"
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"
-        },
-        "resize": true
-      },
-      "modes": {
-        "grab": {
-          "distance": 400,
-          "line_linked": {
-            "opacity": 1
-          }
-        },
-        "bubble": {
-          "distance": 400,
-          "size": 40,
-          "duration": 2,
-          "opacity": 8,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 200
-        },
-        "push": {
-          "particles_nb": 4
-        },
-        "remove": {
-          "particles_nb": 2
-        }
-      }
-    },
-    "retina_detect": true,
-    "config_demo": {
-      "hide_card": false,
-      "background_color": "#b61924",
-      "background_image": "",
-      "background_position": "50% 50%",
-      "background_repeat": "no-repeat",
-      "background_size": "cover"
-    }
-  }
-);
-</script>
 @endsection

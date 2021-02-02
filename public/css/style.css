@@ -1,6 +1,7 @@
 body {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
+    background-color: aliceblue;
 }
 
 ul {
@@ -44,7 +45,7 @@ select.form-control {
 /* Start Banner */
 .home .navbar-collapse {
     text-align: center;
-    background-color: #050a19;
+    background-color: #302b63;
 }
 
 .home.navbar,
@@ -54,11 +55,24 @@ select.form-control {
 .home.navbar .container-md,
 .home.navbar .container-sm,
 .home.navbar .container-xl {
-    background-color: #050a19;
+    background-color: #302b63;
 }
 
 header.banner {
-    background-color: #050a19;
+    background: #0f0c29; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #24243e,
+        #302b63,
+        #0f0c29
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #24243e,
+        #302b63,
+        #0f0c29
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     color: #fff;
     display: flex;
     align-items: center;
@@ -131,7 +145,7 @@ header.banner {
 
 /* Start Footer */
 footer .copyright {
-    background-color: #050a19;
+    background-color: #302b63;
     padding: 15px 0;
     color: #666;
 }
