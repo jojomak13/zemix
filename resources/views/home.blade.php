@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.60379664459!2d31.328332021262092!3d30.05961855887829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2z2KfZhNmC2KfZh9ix2KnYjCDZhdit2KfZgdi42Kkg2KfZhNmC2KfZh9ix2KnigKw!5e0!3m2!1sar!2seg!4v1612098477180!5m2!1sar!2seg" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d863.9501311481887!2d31.2761411!3d29.9851622!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zMjnCsDU5JzA3LjIiTiAzMcKwMTYnMzMuMCJF!5e0!3m2!1sar!2seg!4v1612285607283!5m2!1sar!2seg" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
         </div>
     </div>
