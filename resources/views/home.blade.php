@@ -1,5 +1,7 @@
 @extends('layouts.home.master')
 
+@section('title', 'Courier Service Company')
+
 @section('content')
 <header class="banner" id="banner">
     <div class="container">
