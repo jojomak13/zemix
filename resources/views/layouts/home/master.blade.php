@@ -13,6 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers.">
+    <meta name="theme-color" content="#302b63" />
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" value="summary">
