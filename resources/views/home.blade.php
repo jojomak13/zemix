@@ -28,6 +28,12 @@
                 </div>
                 <div class="card">
                     <div class="icon">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                    <a href="https://www.facebook.com/ZEMIIXX">fb.com/ZEMIIXX</a>
+                </div>
+                <div class="card">
+                    <div class="icon">
                         <i class="fa fa-map-marker"></i>
                     </div>
                     <a href="javascript:void(0)">3/4 Hay Street, off Algeria Street, next to the Republic headquarters, Al Basateen neighborhood, Maadi</a>
@@ -43,8 +49,8 @@
     <div>
     </div>
     <div class="copyright text-center">
-        <span>
-            <i class="fa fa-code text-success"></i> with <i class="text-danger fa fa-heart"></i> by <a href="https://www.linkedin.com/in/joseph-makram/" target="_blank">Joseph Makram</a>
+        <span class="text-white">
+            &copy;2021 <a href="{{ url('/') }}">{{ config('app.name') }}</a> | All Rights Reserved
         </span>
     </div>  
 </footer>
