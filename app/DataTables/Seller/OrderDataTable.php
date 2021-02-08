@@ -36,7 +36,7 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {
-        return Order::select('orders.id', 'barcode', 'phone', 'client_name', 'price', 'address', 'orders.shipping_price', 'city_id', 'status_id')
+        return Order::select('orders.id', 'barcode', 'phone', 'client_name', 'price', 'address', 'notes', 'orders.shipping_price', 'city_id', 'status_id')
             ->where('seller_id', auth('seller')->user()->id)
             ->with('city:id,name')
             ->with('status:id,name')
@@ -94,7 +94,6 @@ class OrderDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
                   ->addClass('text-center'),
         ];
     }
