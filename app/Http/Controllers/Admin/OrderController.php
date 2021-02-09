@@ -33,7 +33,6 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $order->load(['city:name,id', 'seller:name,company_name,id']);
-//        return $order;
         return view('admin.orders.show', compact('order'));
     }
 

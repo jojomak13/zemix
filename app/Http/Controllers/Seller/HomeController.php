@@ -8,6 +8,7 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\DataTables\Seller\CityDataTable;
 use App\DataTables\Seller\OrderDataTable;
 
 class HomeController extends Controller
@@ -78,13 +79,9 @@ class HomeController extends Controller
         return Validator::make($data, $rules);
     }
 
-    public function cities()
+    public function cities(CityDataTable $datatable)
     {
-        $cities = City::with('prices')->paginate(10);
-
-        // return $cities;
-
-        return view('seller.cities', compact('cities'));
+        return $datatable->render('seller.cities.index');
     }
 
 }
