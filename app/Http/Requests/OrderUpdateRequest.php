@@ -28,7 +28,7 @@ class OrderUpdateRequest extends FormRequest
             'phone' => 'required|string|min:11|max:11',
             'price' => 'required|numeric',
             'shipping_price' => 'required|numeric',
-            'address' => 'required|string',
+            'address' => 'required|string|max:255',
             'notes' => '',
             'description' => 'string|nullable',
             'driver_id' => 'required',

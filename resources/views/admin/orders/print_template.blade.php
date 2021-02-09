@@ -10,12 +10,12 @@
               <li><span>المدينة</span>: <span>{{ $order->city->name }}</span></li>
           </ul>
           <ul class="list mt-3">
-              <li><span>أسم البائع</span>: <span>{{ $order->seller->name }}</span></li>
+              <li><span>أسم البائع</span>: <span>{{ $order->seller->company_name }}</span></li>
               <li><span>رقم الهاتف</span>: <span>{{ $order->phone }}</span></li>
           </ul>
       </div>
       <ul class="list mb-0">
-          <li><span>العنوان</span>: <span>{{ $order->address }}</span></li>
+          <li style="height: 120px;"><span>العنوان</span>: <span>{{ mb_substr($order->address, 0, 200) }}</span></li>
       </ul>
   </div>
 </div>

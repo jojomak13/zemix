@@ -18,7 +18,7 @@
         <div class="card-header">Orders</div>
         <div class="card-body">
             <div class="table-responsive">
-                <form action="{{ route('seller.orders.print') }}" method="POST" id="orders-form">
+                <form action="{{ route('seller.orders.print') }}" method="POST" target="_blank" id="orders-form">
                     @csrf
                     {{ $dataTable->table([
                         'class' => 'table table-striped table-bordered nowrap dataTable'

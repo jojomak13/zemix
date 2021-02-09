@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->text('content')->nullable();
             $table->mediumText('description')->nullable();
             $table->mediumText('notes')->nullable();
-            $table->mediumText('address');
+            $table->text('address');
             $table->json('history')->default('[]'); 
             $table->string('barcode')->nullable()->unique();
             $table->double('price', 7, 2);

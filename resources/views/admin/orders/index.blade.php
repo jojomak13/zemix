@@ -13,7 +13,7 @@
 <div class="card">
     <div class="card-block">
         <div class="dt-responsive table-responsive">
-            <form action="{{ route('admin.orders.print') }}" method="POST" id="orders-form">
+            <form action="{{ route('admin.orders.print') }}" method="POST" target="_blank" id="orders-form">
                 @csrf
                 {{ $dataTable->table([
                     'class' => 'table table-striped table-bordered nowrap dataTable'
