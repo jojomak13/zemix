@@ -155,6 +155,10 @@ footer .copyright a {
 }
 /* End Footer */
 
+.ck.ck-editor__main > .ck-editor__editable {
+    height: 200px !important;
+}
+
 @media only screen and (max-width: 500px) {
     html {
         font-size: 14px !important;

@@ -38,6 +38,31 @@ class OrderController extends Controller
         return view('seller.orders.show', compact('order'));
     }
 
+    public function edit(Order $order)
+    {
+        if($order->seller_id !== auth('seller')->user()->id){
+            return abort(403);
+        }
+
+        $cities = City::select('id', 'name')->get();
+
+        return view('seller.orders.edit', compact('order', 'cities'));
+    }
+
+    public function update(Order $order, Request $request)
+    {
+        $data = $this->validator($request->all())->validate();
+
+        if($order->seller_id !== auth('seller')->user()->id || $order->status_id !== 1){
+            return abort(403);
+        }
+        
+        $order->update($data);
+        
+        session()->flash('success', 'Order Updated Successfully.');
+        return redirect()->route('seller.home'); 
+    }
+
     public function upload(Request $request)
     {
         $request->validate([

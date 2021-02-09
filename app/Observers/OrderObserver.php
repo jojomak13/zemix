@@ -52,7 +52,6 @@ class OrderObserver
      */
     public function updating(Order $order)
     {
-        // $data = request()->all();
         $guard = explode('_', auth()->guard()->getName())[1];
 
         if($guard == 'admin'){

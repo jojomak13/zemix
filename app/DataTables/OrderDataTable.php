@@ -68,6 +68,7 @@ class OrderDataTable extends DataTable
             ->dom('Bfrtip')
             ->orderBy(1, 'desc')
             ->parameters([
+                'pageLength' => 50,
                 'autoWidth' => false,
                 'columnDefs' => [
                     ['visible' => false, 'targets' => [7], 'className' => 'hidden' ]
