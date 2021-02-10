@@ -1,8 +1,11 @@
 <div class="card mt-2">
   <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-          <img src="{{ asset('backend/images/logo.png') }}" class="img-fluid" style="width:150px" alt="{{ config('app.name') }}">
-          {!! DNS2D::getBarcodeSVG($order->barcode, 'QRCODE', 3, 3) !!}
+            <div>
+                <img src="{{ asset('backend/images/logo.png') }}" class="img-fluid" style="width:150px" alt="{{ config('app.name') }}">
+                <p class="text-muted" dir="auto">{{ config('info.phone') }}</p>
+            </div>
+            {!! DNS2D::getBarcodeSVG($order->barcode, 'QRCODE', 3, 3) !!}
       </div>
       <div class="d-flex justify-content-between">
           <ul class="list mt-3">

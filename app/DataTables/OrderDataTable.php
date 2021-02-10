@@ -37,7 +37,7 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {   
-        return Order::select('orders.id', 'client_name', 'price', 'orders.address', 'orders.shipping_price', 'orders.city_id', 'status_id', 'driver_id', 'seller_id')
+        return Order::select('orders.id', 'client_name', 'price', 'phone', 'orders.address', 'orders.shipping_price', 'orders.city_id', 'status_id', 'driver_id', 'seller_id')
             ->with('city:id,name')
             ->with('status:id,name')
             ->with('driver:id,name')
@@ -71,7 +71,7 @@ class OrderDataTable extends DataTable
                 'pageLength' => 50,
                 'autoWidth' => false,
                 'columnDefs' => [
-                    ['visible' => false, 'targets' => [7], 'className' => 'hidden' ]
+                    ['visible' => false, 'targets' => [4, 8], 'className' => 'hidden' ],
                 ]
             ])
             ->buttons(
@@ -104,6 +104,7 @@ class OrderDataTable extends DataTable
             Column::make('#')->data('id')->name('id'),
             Column::make('Company')->width('auto')->data('seller.company_name')->name('seller.company_name'),
             Column::make('Client')->data('client_name')->name('client_name'),
+            Column::make('Phone')->data('phone')->name('phone'),
             Column::make('Total Price')->data('total_price')->searchable(false)->sortable(false),
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),

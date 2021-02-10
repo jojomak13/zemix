@@ -18,25 +18,25 @@
                     <div class="icon">
                         <i class="fa fa-phone"></i>
                     </div>
-                    <a href="tel:+201095204943">+201095204943</a>
+                    <a href="tel:{{ config('info.phone') }}">{{ config('info.phone') }}</a>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <i class="fa fa-envelope"></i>
                     </div>
-                    <a href="mailto:support@zemix.org">support@zemix.org</a>
+                    <a href="mailto:{{ config('info.email') }}">{{ config('info.email') }}</a>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <i class="fa fa-facebook"></i>
                     </div>
-                    <a href="https://www.facebook.com/ZEMIIXX">fb.com/ZEMIIXX</a>
+                    <a href="{{ config('info.facebook.url') }}">{{ config('info.facebook.title') }}</a>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <i class="fa fa-map-marker"></i>
                     </div>
-                    <a href="javascript:void(0)">3/4 Hay Street, off Algeria Street, next to the Republic headquarters, Al Basateen neighborhood, Maadi</a>
+                    <a href="javascript:void(0)">{{ config('info.address') }}</a>
                 </div>
             </div>
             <div class="col-md-7">
