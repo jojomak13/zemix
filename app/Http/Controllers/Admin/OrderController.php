@@ -72,11 +72,8 @@ class OrderController extends Controller
      */
     public function update(OrderUpdateRequest $request, Order $order)
     {
-        $historyStatus = Collect(json_decode($order->history))->map(fn($el) => $el->status);
-        $status = Status::findOrFail($request->status_id);
-
-        if($request->status_id != $order->status_id && $historyStatus->contains($status->name)){
-            session()->flash('warning', 'You can\'t update order with old status');
+        if(in_array($order->status_id, [6, 7, 8])){
+            session()->flash('warning', 'You can\'t update this order any more');
             return redirect()->route('admin.orders.index');
         }
 
@@ -115,15 +112,10 @@ class OrderController extends Controller
             'statusId' => 'required|exists:statuses,id'
         ]);
         
-        $status = Status::findOrFail($request->statusId);
-
-        
         foreach($request->items as $orderId){
             $order = Order::findOrFail($orderId);
             
-            $historyStatus = Collect(json_decode($order->history))->map(fn($el) => $el->status);
-            
-            if($request->status_id != $order->status_id && $historyStatus->contains($status->name)){
+            if(in_array($order->status_id, [6, 7, 8])){
                 continue;
             } else {
                 $order->update(['status_id' => $request->statusId]);
