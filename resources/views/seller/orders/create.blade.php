@@ -110,7 +110,7 @@
                         {{-- Start Content --}}
                         <div class="form-group">
                             <label for="content">Content <abbr title="Required Field">*</abbr></label>
-                            <textarea id="content" name="content" class="form-control editor @error('content') is-invalid @enderror" required>{{ old('content') }}</textarea>
+                            <textarea id="content" name="content" class="form-control editor @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
                             @error('content')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
