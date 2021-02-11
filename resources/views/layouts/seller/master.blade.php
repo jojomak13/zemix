@@ -20,7 +20,6 @@
     <meta name="twitter:title" content="Zemix">
     <meta name="twitter:description" content="Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers.">
     <meta name="twitter:creator" content="@zemix">
-    <!-- Twitter Summary card images must be at least 120x120px -->
     <meta name="twitter:image" content="{{ url('images/logo.png') }}">
 
     <!-- Open Graph data -->
@@ -37,7 +36,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Home') - {{ config('app.name', 'Laravel') }}</title>
+    <title>@if($__env->yieldContent('title')) @yield('title') - @endif {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -48,6 +47,41 @@
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "{{ config('app.name') }}",
+          "description": "Now you can safely say goodbyes to the lengthy delivery processes as you welcome timely delivery with zemix. Have a fast delivery and reap the rewards of loyal customers.",
+          "openingHours": ["Sa-Fr 09:00-21:00"],
+          "paymentAccepted": "Cash",
+          "priceRange": "$",
+          "url": "https://www.zemix.org",
+          "telephone": "(+20) 109-5204-943",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Maadi",
+            "addressRegion": "Cairo",
+            "postalCode": "11742",
+            "streetAddress": "3/4 Hay Street, off Algeria Street, next to the Republic headquarters, Al Basateen neighborhood"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "250"
+          },
+          "founder": {
+            "@type": "Person",
+            "additionalName": "Ahmed Ghaly"
+          },
+          "areaServed": "Egypt",
+          "email": "support@zemix.org",
+          "legalName": "{{ config('app.name') }}",
+          "logo": "{{ url('images/logo.png') }}",
+          "image": "{{ url('images/logo.png') }}",
+          "hasMap": "https://www.google.com/maps?cid=5471718797107203641"
+        }
+    </script>
 </head>
 <body>
     <div id="app">

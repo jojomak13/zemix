@@ -1,5 +1,7 @@
 @extends('layouts.seller.master')
 
+@section('title', 'seller register')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
