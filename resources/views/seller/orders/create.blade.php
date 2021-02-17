@@ -41,7 +41,7 @@
                             {{-- Start Price --}}
                             <div class="form-group col-md-6">
                                 <label for="price">Price <abbr title="Required Field">*</abbr></label>
-                                <input type="number" id="price" min="1" step="0.5" value="{{ old('price') }}" name="price" class="form-control @error('price') is-invalid @enderror" required>
+                                <input type="number" id="price" step="0.5" value="{{ old('price') }}" name="price" class="form-control @error('price') is-invalid @enderror" required>
                                 @error('price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
