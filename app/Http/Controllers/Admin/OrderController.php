@@ -99,7 +99,7 @@ class OrderController extends Controller
 
     public function print(Request $request)
     {
-        $request->validate(['orders' => 'required|array|min:1|max:10']);
+        $request->validate(['orders' => 'required|array|min:1|max:20']);
         
         $orders = Order::whereIn('id', $request->input('orders'))->with(['seller:id,company_name', 'city:id,name'])->get();
         return view('admin.orders.show', compact('orders'));
