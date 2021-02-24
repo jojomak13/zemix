@@ -40,7 +40,7 @@ class OrderController extends Controller
 
     public function edit(Order $order)
     {
-        if($order->seller_id !== auth('seller')->user()->id){
+        if($order->seller_id != auth('seller')->user()->id){
             return abort(403);
         }
 
@@ -53,7 +53,7 @@ class OrderController extends Controller
     {
         $data = $this->validator($request->all())->validate();
 
-        if($order->seller_id !== auth('seller')->user()->id || $order->status_id !== 1){
+        if($order->seller_id != auth('seller')->user()->id || $order->status_id != 1){
             return abort(403);
         }
         
