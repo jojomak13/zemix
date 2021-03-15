@@ -104,7 +104,8 @@ class OrderDataTable extends DataTable
             Column::make('#')->data('id')->name('id'),
             Column::make('Company')->width('auto')->data('seller.company_name')->name('seller.company_name'),
             Column::make('Client')->data('client_name')->name('client_name'),
-            Column::make('Phone')->data('phone')->name('phone'),
+            Column::make('Phone')->data('phone')->name('phone')
+                ->orderable(false),
             Column::make('Total Price')->data('total_price')->searchable(false)->sortable(false),
             Column::make('Shipping')->data('shipping_price')->name('shipping_price'),
             Column::make('City')->data('city.name')->name('city.name'),

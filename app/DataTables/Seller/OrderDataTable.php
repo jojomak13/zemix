@@ -36,7 +36,7 @@ class OrderDataTable extends DataTable
      */
     public function query()
     {
-        return Order::select('orders.id', 'barcode', 'phone', 'client_name', 'price', 'address', 'notes', 'orders.shipping_price', 'city_id', 'status_id')
+        return Order::select('orders.id', 'barcode', 'orders.phone', 'client_name', 'price', 'address', 'notes', 'orders.shipping_price', 'city_id', 'status_id')
             ->where('seller_id', auth('seller')->user()->id)
             ->with('city:id,name')
             ->with('status:id,name')
