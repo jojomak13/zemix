@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,9 +18,8 @@ class HomeController extends Controller
             DB::raw('sum(shipping_fees) as shipping_fees'),
             DB::raw('sum(seller_fees) as seller_fees'),
         ])
-        ->where([
-            'closed' => 0
-        ])
+        ->whereMonth('created_at', Carbon::now()->month)
+        ->whereYear('created_at', Carbon::now()->year)
         ->firstOrFail();
         
         return view('admin.index', compact('stats'));
