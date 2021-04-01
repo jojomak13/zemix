@@ -146,7 +146,7 @@ const config = {
                     min: 0,
                     // max: 100,
                     // forces step size to be 5 units
-                    stepSize: 100
+                    stepSize: 1000
                 }
             }]
         }
