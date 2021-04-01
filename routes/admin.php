@@ -5,6 +5,7 @@ Auth::routes();
 
 Route::middleware('auth:admin')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/chart-data', 'HomeController@chartData')->name('home.chart');
 
     Route::resource('/cities', 'CityController');
     
